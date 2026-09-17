@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700,800&display=swap');
+/*
+* NotoSans
+ */
+
+@font-face {
+  font-family: 'NotoSans';
+  font-style:normal;
+  font-weight: 300;
+  src: url('../_font/NotoSansKR-Thin.eot'); /* IE9 Compat Modes */
+  src: url('../_font/NotoSansKR-Thin.woff') format('woff'),
+       url('../_font/NotoSansKR-Thin.otf') format('opentype'),
+	   url('../_font/NotoSansKR-Thin.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+
+
+@font-face {
+  font-family: 'NotoSans';
+  font-style:normal;
+  font-weight: 400;
+  src: url('../_font/NotoSansKR-Light.eot'); /* IE9 Compat Modes */
+  src: url('../_font/NotoSansKR-Light.woff') format('woff'),
+       url('../_font/NotoSansKR-Light.otf') format('opentype'),
+	   url('../_font/NotoSansKR-Light.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'NotoSans';
+  font-style:normal;
+  font-weight: 500;
+  src: url('../_font/NotoSansKR-DemiLight.eot'); /* IE9 Compat Modes */
+  src: url('../_font/NotoSansKR-DemiLight.woff') format('woff'),
+       url('../_font/NotoSansKR-DemiLight.otf') format('opentype'),
+	   url('../_font/NotoSansKR-DemiLight.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'NotoSans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../_font/NotoSansKR-Regular.eot'); /* IE9 Compat Modes */
+  src: url('../_font/NotoSansKR-Regular.woff') format('woff'),
+       url('../_font/NotoSansKR-Regular.otf') format('opentype'),
+	   url('../_font/NotoSansKR-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'NotoSans';
+  font-style:normal;
+  font-weight: 700;
+  src: url('../_font/NotoSansKR-Medium.eot'); /* IE9 Compat Modes */
+  src: url('../_font/NotoSansKR-Medium.woff') format('woff'),
+       url('../_font/NotoSansKR-Medium.otf') format('opentype'),
+	   url('../_font/NotoSansKR-Medium.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+
+@font-face {
+  font-family: 'NotoSans';
+  font-style:normal;
+  font-weight:800;
+  src: url('../_font/NotoSansKR-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../_font/NotoSansKR-Bold.woff') format('woff'),
+       url('../_font/NotoSansKR-Bold.otf') format('opentype'),
+	   url('../_font/NotoSansKR-Bold.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+
+
+@font-face {
+  font-family: 'NotoSans';
+  font-style:normal;
+  font-weight: 900;
+  src: url('../_font/NotoSansKR-Black.eot'); /* IE9 Compat Modes */
+  src: url('../_font/NotoSansKR-Black.woff') format('woff'),
+       url('../_font/NotoSansKR-Black.otf') format('opentype'),
+	   url('../_font/NotoSansKR-Black.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+
+
+/*
+* 나눔스퀘어라운드
+ */
+
+@font-face {
+  font-family: 'NanumSquareRound';
+  font-style:normal;
+  font-weight: 300;
+  src: url('../_font/NanumSquareRoundL.eot'); /* IE9 Compat Modes */
+  src: url('../_font/NanumSquareRoundL.woff') format('woff'),
+       url('../_font/NanumSquareRoundL.otf') format('opentype'),
+	   url('../_font/NanumSquareRoundL.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+
+@font-face {
+  font-family: 'NanumSquareRound';
+  font-style:normal;
+  font-weight: 400;
+  src: url('../_font/NanumSquareRoundR.eot'); /* IE9 Compat Modes */
+  src: url('../_font/NanumSquareRoundR.woff') format('woff'),
+       url('../_font/NanumSquareRoundR.otf') format('opentype'),
+	   url('../_font/NanumSquareRoundR.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+
+@font-face {
+  font-family: 'NanumSquareRound';
+  font-style:normal;
+  font-weight: 600;
+  src: url('../_font/NanumSquareRoundB.eot'); /* IE9 Compat Modes */
+  src: url('../_font/NanumSquareRoundB.woff') format('woff'),
+       url('../_font/NanumSquareRoundB.otf') format('opentype'),
+	   url('../_font/NanumSquareRoundB.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+
+@font-face {
+  font-family: 'NanumSquareRound';
+  font-style:normal;
+  font-weight: 800;
+  src: url('../_font/NanumSquareRoundEB.eot'); /* IE9 Compat Modes */
+  src: url('../_font/NanumSquareRoundEB.woff') format('woff'),
+       url('../_font/NanumSquareRoundEB.otf') format('opentype'),
+	   url('../_font/NanumSquareRoundEB.ttf') format('truetype'); /* Safari, Android, iOS */
+}

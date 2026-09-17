@@ -1,0 +1,42 @@
+@charset "utf-8";
+/*==========  [시안 2026-09-17] 메인비주얼 아래 - 거래처 로고 흐르는 띠  ==========*/
+/* 같은 로고 목록을 두 번 이어 붙이고 -50% 만큼 이동 → 끊김 없이 반복 */
+
+.main_partner {position: relative; padding: 40px 0; background: #fff; overflow: hidden;}
+.pl-viewport {overflow: hidden;
+	-webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16%, #000 84%, transparent 100%);
+	        mask-image: linear-gradient(90deg, transparent 0, #000 16%, #000 84%, transparent 100%);}
+.pl-track {display: flex; width: max-content; animation: pl-scroll 45s linear infinite;}
+.pl-viewport:hover .pl-track {animation-play-state: paused;}
+.pl-list {display: flex; align-items: center; flex-shrink: 0; gap: 80px; padding-right: 80px;}
+@keyframes pl-scroll {from {transform: translateX(0);} to {transform: translateX(-50%);}}
+
+/* 로고 한 개 — 실제 로고 이미지는 높이 40px 기준 */
+.pl-item {display: flex; align-items: center; height: 44px; flex-shrink: 0;}
+.pl-item img {display: block; height: 40px; width: auto;}
+
+/* 임시 로고 (심볼 + 이름) */
+.pl-logo {display: flex; align-items: center; gap: 9px; color: var(--c); white-space: nowrap;}
+.pl-logo svg {display: block; width: 32px; height: 32px; flex-shrink: 0;}
+.pl-logo b {font-size: 21px; font-weight: 800; letter-spacing: -.5px; line-height: 1;}
+.pl-logo.en b {font-size: 19px; letter-spacing: .6px;}
+.pl-logo small {display: block; margin-top: 3px; font-size: 8.5px; font-weight: 600; letter-spacing: .8px; line-height: 1; opacity: .7;}
+
+@media all and (max-width: 768px) {
+	.main_partner {padding: 22px 0;}
+	.pl-viewport {-webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+	                      mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);}
+	.pl-track {animation-duration: 32s;}
+	.pl-list {gap: 44px; padding-right: 44px;}
+	.pl-item {height: 34px;}
+	.pl-item img {height: 30px;}
+	.pl-logo {gap: 7px;}
+	.pl-logo svg {width: 24px; height: 24px;}
+	.pl-logo b {font-size: 16px;}
+	.pl-logo.en b {font-size: 14px;}
+	.pl-logo small {font-size: 7px;}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pl-track {animation: none;}
+}

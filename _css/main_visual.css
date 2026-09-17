@@ -1,0 +1,115 @@
+@charset "utf-8";
+/*==========  [시안 2026-09-17] 메인 배너 오른쪽 그림 - 1·2·3번 공통 배치 + 2·3번 그림  ==========*/
+/* 그림은 이미지 대신 HTML/CSS 로 구성 (문구 수정 쉽게). 배경 이미지·그라데이션은 contents.css / main_devkit.css */
+
+/* 공통 배치: 오른쪽, 세로 중앙 */
+.mv-visual {position: absolute; right: 40px; top: 50%; width: 560px; height: 300px; margin-top: -150px; pointer-events: none; line-height: 1.4; letter-spacing: 0; color: #222; text-align: left;}
+.mv-visual.tall {height: 400px; margin-top: -200px;}
+.mv-visual * {box-sizing: border-box;}
+
+/*---------- 2번 배너: 바코드 입출고 프로그램 ----------*/
+.bc-window {position: absolute; right: 0; top: 0; width: 500px; height: 296px; padding: 6px; border-radius: 18px; background: #fff; box-shadow: 0 24px 50px rgba(0,0,0,.4);}
+.bc-app {display: flex; width: 100%; height: 100%; border-radius: 12px; overflow: hidden; background: #f3f5f7;}
+.bc-side {width: 26px; flex-shrink: 0; padding-top: 36px; background: #3b4a52;}
+.bc-side i {display: block; width: 10px; height: 10px; margin: 0 auto 12px; border-radius: 2px; background: rgba(255,255,255,.3);}
+.bc-side i.on {background: #f36d0c;}
+.bc-main {flex: 1; min-width: 0; padding: 10px 12px;}
+.bc-top {display: flex; align-items: center; height: 18px; margin-bottom: 7px; color: #666; font-size: 9px;}
+.bc-top b {margin-right: 5px; color: #222; font-weight: 700;}
+.bc-top span {margin-left: auto; padding: 2px 7px; border-radius: 3px; background: #f36d0c; color: #fff; font-size: 8.5px; font-weight: 600;}
+.bc-top span + span {margin-left: 4px; border: 1px solid #d6dbdf; background: #fff; color: #555;}
+.bc-scan {display: flex; gap: 8px; margin-bottom: 9px;}
+.bc-scan div {flex: 1; height: 38px; padding: 0 10px; border-radius: 4px; line-height: 36px; white-space: nowrap; overflow: hidden;}
+.bc-scan .done {flex: 1.1; border: 1px solid #8fd3dd; background: #e9fafc; color: #1b2a30; font-size: 15px; font-weight: 700;}
+.bc-scan .input {border: 1px solid #dfe3e6; background: #fff; color: #a3abb0; font-size: 14px;}
+.bc-table {border-radius: 4px; overflow: hidden; background: #fff; font-size: 8.5px;}
+.bc-tr {display: flex; align-items: center; height: 22px; border-bottom: 1px solid #eef1f3; color: #444;}
+.bc-tr:last-child {border-bottom: 0;}
+.bc-tr.th {height: 20px; border: 0; background: #3b4a52; color: #fff; font-weight: 600;}
+.bc-tr.new {background: #eaf3ff; color: #111; font-weight: 600;}
+.bc-tr span {padding: 0 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.bc-tr span:nth-child(1) {flex: 1.25;}
+.bc-tr span:nth-child(2) {flex: .85;}
+.bc-tr span:nth-child(3) {flex: .6; text-align: right;}
+.bc-tr span:nth-child(4) {flex: .7;}
+.bc-tr span:nth-child(5) {flex: 1.2;}
+
+/* 자재 라벨 카드 */
+.bc-label {position: absolute; left: 0; top: 200px; display: flex; align-items: center; gap: 12px; width: 236px; padding: 14px; border-radius: 12px; background: #fff; box-shadow: 0 16px 36px rgba(0,0,0,.4);}
+.bc-label-txt {flex: 1; min-width: 0;}
+.bc-label-txt strong {display: block; color: #111; font-size: 13px; font-weight: 700;}
+.bc-label-txt p {margin-top: 2px; color: #6b777b; font-size: 9px;}
+.bc-bars {height: 20px; margin-top: 7px; background: repeating-linear-gradient(90deg, #222 0 2px, transparent 2px 3px, #222 3px 4px, transparent 4px 6px, #222 6px 9px, transparent 9px 10px, #222 10px 11px, transparent 11px 14px);}
+.bc-qr {position: relative; width: 62px; height: 62px; flex-shrink: 0;}
+.bc-qr svg {display: block; width: 100%; height: 100%;}
+.bc-qr:after {content: ""; position: absolute; left: -5px; right: -5px; top: 50%; height: 2px; background: #ff3b3b; box-shadow: 0 0 6px #ff3b3b; animation: bc-scan 1.6s ease-in-out infinite alternate;}
+@keyframes bc-scan {from {top: 10%;} to {top: 90%;}}
+
+/*---------- 3번 배너: 모바일 입출고 앱 ----------*/
+.sl-phone {position: absolute; width: 204px; height: 370px; padding: 7px; border-radius: 32px; background: #fff; box-shadow: 0 24px 50px rgba(0,0,0,.45);}
+.sl-phone.p1 {left: 96px; top: 30px;}
+.sl-phone.p2 {left: 326px; top: 0;}
+.sl-screen {display: flex; flex-direction: column; width: 100%; height: 100%; border-radius: 26px; overflow: hidden; background: #eef1f5;}
+.sl-head {display: flex; align-items: center; justify-content: space-between; height: 36px; padding: 12px 14px 0; flex-shrink: 0;}
+.sl-head b {color: #1d2a2e; font-size: 11px; font-weight: 700;}
+.sl-head i {position: relative; width: 12px; height: 9px; border-top: 2px solid #333; border-bottom: 2px solid #333;}
+.sl-head i:after {content: ""; position: absolute; left: 0; right: 0; top: 1.5px; height: 2px; background: #333;}
+.sl-summary {margin: 6px 10px 8px; padding: 9px 10px; border-radius: 10px; background: #4b7486; color: #fff;}
+.sl-summary > small {font-size: 8.5px; font-weight: 600;}
+.sl-summary em {margin-left: 3px; font-style: normal; opacity: .7;}
+.sl-nums {display: flex; margin-top: 7px;}
+.sl-nums div {flex: 1; border-left: 1px solid rgba(255,255,255,.25); text-align: center;}
+.sl-nums div:first-child {border-left: 0;}
+.sl-nums small {display: block; font-size: 7.5px; opacity: .8;}
+.sl-nums b {display: block; margin-top: 2px; font-size: 14px; font-weight: 700;}
+.sl-box {margin: 0 10px 8px; padding: 9px 10px; border-radius: 10px; background: #fff;}
+.sl-chart {display: flex; align-items: center; justify-content: space-between;}
+.sl-chart b {display: block; margin-bottom: 7px; color: #1d2a2e; font-size: 9px; font-weight: 700;}
+.sl-chart p {color: #666; font-size: 7.5px; line-height: 1.7;}
+.sl-chart p i {display: inline-block; width: 5px; height: 5px; margin-right: 3px; border-radius: 50%;}
+.sl-chart i.in {background: #8cc63f;}
+.sl-chart i.out {background: #f39a2b;}
+.sl-donut {width: 50px; height: 50px; border-radius: 50%; background: radial-gradient(circle, #fff 0 45%, transparent 46%), conic-gradient(#8cc63f 0 59.3%, #f39a2b 0);}
+.sl-menu {margin: 0 10px; border-radius: 10px; overflow: hidden; background: #fff;}
+.sl-menu p {position: relative; height: 27px; padding: 0 12px; border-bottom: 1px solid #eef1f3; color: #333; font-size: 8.5px; line-height: 27px;}
+.sl-menu p:last-child {border-bottom: 0;}
+.sl-menu p:after {content: "›"; position: absolute; right: 10px; color: #999; font-size: 11px;}
+.sl-info p {display: flex; justify-content: space-between; height: 20px; border-bottom: 1px solid #f0f2f4; color: #1d2a2e; font-size: 8px; font-weight: 600; line-height: 20px;}
+.sl-info p:last-child {border-bottom: 0;}
+.sl-info span {color: #7a858a; font-weight: 400;}
+.sl-scan {color: #7a858a; font-size: 8px;}
+.sl-scan b {margin-left: 8px; color: #1f5fa8; font-weight: 600;}
+.sl-btns {display: flex; gap: 6px; margin: 0 10px;}
+.sl-btns span {flex: 1; height: 28px; border-radius: 6px; color: #fff; font-size: 8.5px; font-weight: 600; line-height: 28px; text-align: center;}
+.sl-btns .blue {background: #3a6ea5;}
+.sl-btns .red {background: #b53a3a;}
+.sl-nav {display: flex; height: 40px; margin-top: auto; border-top: 1px solid #e6e9ec; background: #fff; flex-shrink: 0;}
+.sl-nav span {flex: 1; padding-top: 8px; color: #777; font-size: 7px; text-align: center;}
+.sl-nav span:before {content: ""; display: block; width: 10px; height: 10px; margin: 0 auto 3px; border-radius: 2px; background: #9aa6ad;}
+.sl-nav span.on {color: #3a6ea5; font-weight: 600;}
+.sl-nav span.on:before {background: #3a6ea5;}
+
+/* 반응형 — 1440px 이하는 오른쪽 고정 퀵메뉴(.my-fixed-helper, 980px 이하 숨김)에 가리지 않게 왼쪽으로 */
+@media screen and (max-width: 1440px) {
+	.mv-visual {right: 100px;}
+}
+@media screen and (max-width: 1366px) {
+	.mv-visual {right: 140px;}
+}
+@media screen and (max-width: 1300px) {
+	.mv-visual {transform: scale(.8); transform-origin: right center;}
+}
+@media screen and (max-width: 1080px) {
+	.mv-visual {transform: scale(.66);}
+}
+@media screen and (max-width: 980px) {
+	.mv-visual {right: 15px; top: auto; bottom: 73px; margin-top: 0; transform: scale(.56); transform-origin: right bottom;}
+}
+@media all and (max-width: 768px) {
+	.mv-visual {left: 50%; right: auto; bottom: 69px; transform: translateX(-50%) scale(.46); transform-origin: center bottom;}
+	.mv-visual.tall {transform: translateX(-50%) scale(.4);}
+}
+@media all and (max-width: 400px) {
+	.mv-visual {transform: translateX(-50%) scale(.52);}
+	.mv-visual.tall {transform: translateX(-50%) scale(.44);}
+}

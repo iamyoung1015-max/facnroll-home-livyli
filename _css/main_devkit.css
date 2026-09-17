@@ -1,0 +1,79 @@
+@charset "utf-8";
+/*==========  [시안 2026-09-17] 메인비주얼 - 개발키트 · 자동개발 플랫폼  ==========*/
+/* 오른쪽 그림은 이미지 대신 HTML/CSS 로 구성 (문구 수정 쉽게) */
+
+/* 배경: 주황 파티클 물결 이미지 + 왼쪽 문구 가독성용 어두운 그라데이션 */
+.main_visual .slider_devkit {background: linear-gradient(90deg, rgba(10,4,0,.8) 0%, rgba(10,4,0,.5) 38%, rgba(10,4,0,0) 65%), url('../_img/main/main_visual_devkit.jpg') no-repeat center 2% / cover, #0a0400;}
+
+/* 문구 */
+.slider_devkit .dk-badge {display: inline-block; height: 24px; line-height: 24px; padding: 0 10px; margin-left: 14px; border-radius: 4px; background: #f36d0c; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .5px; vertical-align: middle; position: relative; top: -3px;} /* 제목 "플랫폼" 오른쪽 */
+/* 본문(p.small-txt) 스타일은 모든 배너 공통으로 contents.css 에 있음 */
+
+/* 오른쪽 그림 — 위치·크기·반응형 배치는 main_visual.css 의 .mv-visual 공통 규칙 (창 0~296 + 키트 카드 214~300 = 높이 300) */
+
+
+/* 자동개발 플랫폼 창 */
+.dk-window {position: absolute; right: 0; top: 0; width: 500px; height: 296px; padding: 6px; border-radius: 18px; background: #fff; box-shadow: 0 24px 50px rgba(0,0,0,.35);}
+.dk-app {display: flex; flex-direction: column; width: 100%; height: 100%; border-radius: 12px; overflow: hidden; background: #eef2f4;}
+.dk-bar {display: flex; align-items: center; height: 30px; padding: 0 12px; background: #2b3f45; flex-shrink: 0;}
+.dk-bar i {width: 7px; height: 7px; margin-right: 5px; border-radius: 50%; background: rgba(255,255,255,.28);}
+.dk-bar strong {margin-left: 6px; color: #fff; font-size: 11px; font-weight: 600;}
+.dk-bar em {margin-left: auto; padding: 3px 8px; border-radius: 10px; background: rgba(255,255,255,.12); color: #bfe0e4; font-size: 9px; font-style: normal; font-weight: 600;}
+.dk-bar em:before {content: ""; display: inline-block; width: 5px; height: 5px; margin: 0 5px 1px 0; border-radius: 50%; background: #3ecf8e;}
+
+.dk-body {display: flex; flex: 1; gap: 10px; padding: 10px;}
+.dk-col-left {display: flex; flex-direction: column; gap: 8px; width: 168px; flex-shrink: 0;}
+.dk-card {border: 1px solid #dfe5e8; border-radius: 8px; background: #fff; padding: 9px 10px;}
+.dk-label {display: block; margin-bottom: 4px; color: #f36d0c; font-size: 9px; font-weight: 700;}
+.dk-prompt p {color: #333; font-size: 10.5px; line-height: 1.5;}
+
+.dk-step {display: flex; align-items: center; height: 19px; color: #444; font-size: 10px;}
+.dk-step:before {content: "✓"; display: inline-block; width: 13px; height: 13px; margin-right: 6px; border-radius: 50%; background: #f36d0c; color: #fff; font-size: 8px; line-height: 13px; text-align: center; font-weight: 700;}
+.dk-step.on {color: #111; font-weight: 700;}
+.dk-step.on:before {content: ""; background: #fff; border: 3px solid #f36d0c; width: 13px; height: 13px;}
+.dk-progress {height: 4px; margin: 3px 0 1px 19px; border-radius: 2px; background: #e6eaed; overflow: hidden;}
+.dk-progress span {display: block; width: 72%; height: 100%; background: #f36d0c; animation: dk-progress 2.4s ease-in-out infinite alternate;}
+@keyframes dk-progress {from {width: 38%;} to {width: 88%;}}
+
+/* 생성된 프로그램 미리보기 */
+.dk-col-right {flex: 1; min-width: 0; padding: 10px 11px;}
+.dk-app-head {display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;}
+.dk-app-head strong {font-size: 12px; font-weight: 700; color: #1d2a2e;}
+.dk-app-head span {padding: 3px 7px; border-radius: 4px; background: #f36d0c; color: #fff; font-size: 8.5px; font-weight: 600;}
+.dk-stats {display: flex; gap: 6px; margin-bottom: 8px;}
+.dk-stats div {flex: 1; padding: 6px 7px; border-radius: 6px; background: #f3f6f7;}
+.dk-stats small {display: block; color: #6b777b; font-size: 8.5px;}
+.dk-stats b {display: block; margin-top: 1px; color: #1d2a2e; font-size: 14px; font-weight: 700;}
+.dk-stats .warn b {color: #e0483e;}
+.dk-table {width: 100%; font-size: 9px;}
+.dk-tr {display: flex; align-items: center; height: 21px; border-bottom: 1px solid #edf0f2; color: #333;}
+.dk-tr.th {height: 19px; border-radius: 4px; border-bottom: 0; background: #2b3f45; color: #fff; font-weight: 600;}
+.dk-tr span {padding: 0 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.dk-tr span:nth-child(1) {flex: 1.4;}
+.dk-tr span:nth-child(2) {flex: .8;}
+.dk-tr span:nth-child(3) {flex: 1;}
+.dk-tr span:nth-child(4) {flex: .8; text-align: center;}
+.dk-st {display: inline-block; padding: 1px 5px; border-radius: 3px; font-size: 8px; font-weight: 600; line-height: 1.5;}
+.dk-st.rent {background: #fff1e6; color: #e0640a;}
+.dk-st.back {background: #e5f6ee; color: #1f9d63;}
+.dk-st.late {background: #fdeceb; color: #d93b31;}
+
+/* 개발키트 장비 카드 */
+.dk-kit {position: absolute; left: 0; top: 214px; display: flex; gap: 12px; width: 258px; padding: 14px; border-radius: 12px; background: #fff; box-shadow: 0 16px 36px rgba(0,0,0,.38);}
+.dk-device {position: relative; width: 58px; height: 58px; flex-shrink: 0; border-radius: 12px; background: linear-gradient(145deg, #3a4449, #1f2529); box-shadow: inset 0 1px 0 rgba(255,255,255,.15);}
+.dk-device:before {content: ""; position: absolute; left: 12px; right: 12px; top: 12px; height: 12px; background: repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 2px, transparent 2px 5px);}
+.dk-device:after {content: ""; position: absolute; left: 11px; bottom: 11px; width: 6px; height: 6px; border-radius: 50%; background: #3ecf8e; box-shadow: 0 0 6px #3ecf8e;}
+.dk-kit-txt strong {display: block; color: #111; font-size: 14px; font-weight: 700;}
+.dk-kit-txt p {margin-top: 2px; color: #6b777b; font-size: 9.5px;}
+.dk-chips {display: flex; flex-wrap: wrap; gap: 3px; margin-top: 6px;}
+.dk-chips span {padding: 2px 5px; border-radius: 3px; background: #eef2f4; color: #3c4a4f; font-size: 8.5px; font-weight: 600;}
+
+/* 반응형 */
+@media screen and (max-width: 980px) {
+	.main_visual .slider_devkit .visual_txt p.mid-txt {font-size: 32px;}
+}
+@media all and (max-width: 768px) {
+	.main_visual .slider_devkit {background: linear-gradient(180deg, rgba(10,4,0,.7) 0%, rgba(10,4,0,.25) 55%, rgba(10,4,0,0) 80%), url('../_img/main/main_visual_devkit.jpg') no-repeat center / cover, #0a0400;} /* 모바일은 문구가 위쪽 */
+	.slider_devkit .dk-badge {height: 18px; line-height: 18px; padding: 0 6px; margin-left: 6px; font-size: 10px; top: -2px;}
+	.main_visual .slider_devkit .visual_txt p.mid-txt {font-size: 24px;}
+}
