@@ -1,0 +1,404 @@
+@charset "utf-8";
+/*==========  [시안 2026-09-21] 자동개발키트 소개 페이지 (/wave/01/01)  ==========*/
+/* 제품 사진이 없는 자리는 HTML/CSS 그림으로 대체. 레이아웃(섹션·카드 배치)은 기존 그대로 */
+
+/* 상단 배너 배경 — 메인 배너와 같은 이미지 */
+#sub01 {background: linear-gradient(90deg, rgba(10,4,0,.82) 0%, rgba(10,4,0,.5) 42%, rgba(10,4,0,.15) 70%), url('../_img/main/main_visual_devkit.jpg') no-repeat center 2% / cover, #0a0400 !important;}
+
+/* 그림 자리 공통 */
+.dki {position: relative; width: 100%; aspect-ratio: 4 / 3; border-radius: 6px; overflow: hidden;
+      background: linear-gradient(160deg, #eef2f4, #dfe6ea); display: flex; align-items: center; justify-content: center;}
+.dki * {box-sizing: border-box;}
+.dki-cap {position: absolute; left: 0; right: 0; bottom: 10px; color: #7b878d; font-size: 12px; text-align: center; letter-spacing: 0;}
+
+/* 미니PC */
+.dki-pc .box {position: relative; width: 44%; aspect-ratio: 1 / 1; border-radius: 14px;
+              background: linear-gradient(145deg, #3d474d, #1e2529); box-shadow: 0 14px 28px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.16);}
+.dki-pc .box:before {content: ""; position: absolute; left: 16%; right: 16%; top: 18%; height: 16%;
+                     background: repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 3px, transparent 3px 7px);}
+.dki-pc .box:after {content: ""; position: absolute; left: 16%; bottom: 16%; width: 9%; aspect-ratio: 1 / 1; border-radius: 50%;
+                    background: #3ecf8e; box-shadow: 0 0 10px #3ecf8e;}
+
+/* 브라우저 창 */
+.dki-win .win {width: 74%; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 14px 28px rgba(0,0,0,.18);}
+.dki-win .bar {display: flex; align-items: center; gap: 4px; height: 20px; padding: 0 8px; background: #2b3f45;}
+.dki-win .bar i {width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.35);}
+.dki-win .body {padding: 10px;}
+.dki-win .body span {display: block; height: 7px; margin-bottom: 6px; border-radius: 3px; background: #e6ebee;}
+.dki-win .body span:nth-child(1) {width: 58%; background: #f36d0c;}
+.dki-win .body span:nth-child(3) {width: 80%;}
+.dki-win .body span:nth-child(4) {width: 66%;}
+.dki-win .body span:last-child {margin-bottom: 0; width: 40%; background: #cfd8dd;}
+
+/* 사내 서버 + 잠금 */
+.dki-srv .rack {position: relative; width: 38%; padding: 10px; border-radius: 8px; background: #2b3f45; box-shadow: 0 14px 28px rgba(0,0,0,.25);}
+.dki-srv .rack i {display: block; height: 12px; margin-bottom: 7px; border-radius: 3px; background: rgba(255,255,255,.14); position: relative;}
+.dki-srv .rack i:last-child {margin-bottom: 0;}
+.dki-srv .rack i:after {content: ""; position: absolute; right: 7px; top: 50%; margin-top: -2px; width: 4px; height: 4px; border-radius: 50%; background: #3ecf8e;}
+.dki-srv .disk {position: absolute; left: 16%; bottom: 23%; width: 21%; height: 18px; border-radius: 4px; background: #46606a; box-shadow: 0 10px 20px rgba(0,0,0,.2);}
+.dki-srv .disk:before {content: ""; position: absolute; left: 7px; top: 50%; margin-top: -2px; width: 4px; height: 4px; border-radius: 50%; background: #3ecf8e;}
+.dki-srv .disk:after {content: ""; position: absolute; left: 17px; right: 7px; top: 50%; margin-top: -1px; height: 2px; border-radius: 1px; background: rgba(255,255,255,.25);}
+.dki-srv .lock {position: absolute; right: 22%; bottom: 22%; width: 34px; height: 28px; border-radius: 5px; background: #f36d0c;}
+.dki-srv .lock:before {content: ""; position: absolute; left: 50%; top: -13px; margin-left: -9px; width: 18px; height: 16px;
+                       border: 4px solid #f36d0c; border-bottom: 0; border-radius: 9px 9px 0 0;}
+.dki-srv .lock:after {content: ""; position: absolute; left: 50%; top: 9px; margin-left: -2px; width: 4px; height: 9px; border-radius: 2px; background: #fff;}
+
+/* 하이브리드(서버 3종) */
+.dki-hyb .row {display: flex; align-items: flex-end; gap: 8px; width: 76%;}
+.dki-hyb .row div {flex: 1; border-radius: 6px 6px 0 0; background: #2b3f45; box-shadow: 0 10px 20px rgba(0,0,0,.2);}
+.dki-hyb .row div:nth-child(1) {height: 46px; background: #3b4a52;}
+.dki-hyb .row div:nth-child(2) {height: 66px;}
+.dki-hyb .row div:nth-child(3) {height: 54px; background: #46606a;}
+.dki-hyb .row div span {display: block; height: 4px; margin: 8px 8px 0; border-radius: 2px; background: rgba(255,255,255,.22);}
+
+/* AI 비서 */
+.dki-bot .bubble {position: relative; width: 62%; padding: 14px 16px; border-radius: 12px 12px 12px 3px; background: #fff; box-shadow: 0 14px 28px rgba(0,0,0,.18);}
+.dki-bot .bubble span {display: block; height: 7px; margin-bottom: 6px; border-radius: 3px; background: #e6ebee;}
+.dki-bot .bubble span:first-child {width: 46%; background: #f36d0c;}
+.dki-bot .bubble span:last-child {margin-bottom: 0; width: 72%;}
+.dki-bot .clock {position: absolute; right: 20%; top: 22%; width: 34px; height: 34px; border-radius: 50%; border: 4px solid #2b3f45; background: #fff;}
+.dki-bot .clock:before, .dki-bot .clock:after {content: ""; position: absolute; left: 50%; top: 50%; background: #2b3f45; border-radius: 2px;}
+.dki-bot .clock:before {width: 2px; height: 9px; margin: -9px 0 0 -1px;}
+.dki-bot .clock:after {width: 8px; height: 2px; margin: -1px 0 0 -1px;}
+
+/* 개발 흐름 5단계 (기존 슬라이더 자리) */
+/* 제목 뒤 회색 띠는 옛 슬라이더 배경(.container #f1f1f1)과 이어지던 것 — 슬라이더가 빠졌으므로 사용하지 않음 */
+.dki-flow-sec h4.ws_hw {padding: 0; background-color: transparent; margin-bottom: 50px;}
+
+.dki-flow {display: flex; align-items: stretch; justify-content: center; gap: 24px; max-width: 1270px; margin: 0 auto;}
+.dki-flow .step {position: relative; box-sizing: border-box; flex: 1; min-width: 0; padding: 40px; border: 1px solid #e3e8ea; border-radius: 12px; background: #fff; text-align: center;}
+.dki-flow .step em {display: inline-block; width: 26px; height: 26px; margin-bottom: 12px; border-radius: 50%; background: #2b3f45;
+                    color: #fff; font-size: 13px; font-style: normal; font-weight: 700; line-height: 26px;}
+.dki-flow .step.ai em {background: #f36d0c;}
+.dki-flow .step strong {display: block; margin-bottom: 20px; color: #111; font-size: 20px; font-weight: 700;}
+.dki-flow .step p {color: #333; font-size: 17px; line-height: 1.5; text-align: center;}
+.dki-flow .step b {display: inline-block; margin-top: 10px; padding: 3px 9px; border-radius: 11px; background: #fff1e6; color: #e0640a; font-size: 12px; font-weight: 700;}
+.dki-flow .step:not(:last-child):after {content: ""; position: absolute; right: -13px; top: 50%; width: 8px; height: 8px; margin-top: -4px;
+                                        border-top: 2px solid #c6ced2; border-right: 2px solid #c6ced2; transform: rotate(45deg); z-index: 1;}
+
+@media all and (max-width: 980px) {
+	.dki-flow {flex-wrap: wrap; gap: 8px;}
+	.dki-flow .step {flex: 0 0 calc(50% - 4px); padding: 30px 20px;}
+	.dki-flow .step:not(:last-child):after {display: none;}
+	.dki-flow .step strong {font-size: 17px;}
+	.dki-flow .step p {font-size: 15px;}
+}
+@media all and (max-width: 768px) {
+	.dki-flow-sec h4.ws_hw {margin-bottom: 25px;}
+}
+@media all and (max-width: 640px) {
+	.dki-flow .step {flex: 0 0 100%;}
+}
+
+/* 키트 구성 — 하드웨어 / 소프트웨어 2가지 */
+.ws_section08 > ul.dki-kit {display: flex; align-items: stretch; gap: 28px; overflow: visible;}
+.ws_section08 > ul.dki-kit > li {box-sizing: border-box; float: none; width: auto; flex: 1; min-width: 0; margin: 0;
+                                 border: 1px solid #e9edef; border-radius: 10px; overflow: hidden; background: #fff; text-align: left;}
+.ws_section08 > ul.dki-kit > li h6.ws_h6 {padding: 0; color: #111; font-size: 20px; font-weight: 700; text-align: left;}
+.ws_section08 > ul.dki-kit > li h6.ws_h6 .sub {display: inline-block; margin-left: 9px; padding: 4px 10px; border-radius: 12px;
+                                               background: #eef2f4; color: #7b878d; font-size: 12px; font-weight: 600; vertical-align: 3px;}
+.dki-kit > li:first-child h6.ws_h6 .sub {background: #e2f4f1; color: #2b8073;}
+
+/* 그림 자리 — 카드 상단 띠 */
+.dki-kit .dki {height: 190px; border-radius: 0;}
+.dki-kit > li:first-child .dki {background: linear-gradient(160deg, #e7f6f3, #f4fbfa);}
+.dki-kit > li:last-child .dki {background: linear-gradient(160deg, #edf1f3, #f7f9fa);}
+.dki-kit .dki-hyb .row {width: 300px;}
+
+/* 카드 본문 */
+.kit-body {padding: 26px 28px 30px;}
+.dki-kit .items {margin-top: 20px; text-align: left;}
+.dki-kit .items li {padding: 15px 0; border-top: 1px solid #eef1f2;}
+.dki-kit .items li:first-child {border-top: 0; padding-top: 4px;}
+.dki-kit .items b {display: block; margin-bottom: 6px; color: #333; font-size: 17px; font-weight: 700;}
+.dki-kit .items span {display: block; color: #333; font-size: 15px; line-height: 22px;}
+
+/* 기본 구성 그림 — 화면 옆에 미니PC */
+.dki-kit .dki-base .win {position: absolute; left: 50%; top: 30px; width: 320px; margin-left: -186px;}
+.dki-kit .dki-base .box {position: absolute; left: 50%; bottom: 26px; margin-left: 56px; width: 112px; height: 112px; border-radius: 14px;
+                         background: linear-gradient(145deg, #3d474d, #1e2529); box-shadow: 0 14px 28px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.16);}
+.dki-kit .dki-base .box:before {content: ""; position: absolute; left: 16%; right: 16%; top: 20%; height: 14%;
+                                background: repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 3px, transparent 3px 7px);}
+.dki-kit .dki-base .box:after {content: ""; position: absolute; left: 16%; bottom: 16%; width: 12px; height: 12px; border-radius: 50%;
+                               background: #3ecf8e; box-shadow: 0 0 10px #3ecf8e;}
+
+/* 소프트웨어 — 관리 화면(좌측 메뉴 + 본문) */
+.dki-sw .win {width: 74%; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 14px 28px rgba(0,0,0,.18);}
+.dki-sw .bar {display: flex; align-items: center; gap: 4px; height: 20px; padding: 0 8px; background: #2b3f45;}
+.dki-sw .bar i {width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.35);}
+.dki-sw .body {display: flex; min-height: 92px;}
+.dki-sw .side {flex: 0 0 32%; padding: 10px 8px; background: #eef2f4;}
+.dki-sw .side span {display: block; height: 6px; margin-bottom: 8px; border-radius: 3px; background: #cfd8dd;}
+.dki-sw .side span:first-child {background: #f36d0c;}
+.dki-sw .side span:last-child {margin-bottom: 0; width: 70%;}
+.dki-sw .main {flex: 1; padding: 10px;}
+.dki-sw .main span {display: block; height: 7px; margin-bottom: 7px; border-radius: 3px; background: #e6ebee;}
+.dki-sw .main span:nth-child(2) {width: 78%;}
+.dki-sw .main span:last-child {margin-bottom: 0; width: 52%; background: #cfd8dd;}
+
+/* 키트 구성 — 제목 아래 강조 띠 */
+.ws_section08 h4.ws_hw {margin-bottom: 52px;}
+.ws_section08 .dki-hl {display: flex; align-items: center; justify-content: center; gap: 16px; width: fit-content; max-width: 100%; margin: 0 auto 46px; padding: 24px 32px; border-radius: 10px;
+                       background: #e8f7f6; color: #2b4a50; font-size: 20px; font-weight: 500; line-height: 26px;}
+.ws_section08 .dki-hl strong {flex: none; color: #1d2a2e; font-size: 28px; font-weight: 800; letter-spacing: -0.5px;}
+
+/* 만들어지는 결과물 — 카드 캐러셀 (Swiper 4, tail.php 에서 로드) */
+.dki-out {position: relative; max-width: 1270px; margin: 42px auto 0; padding: 0 15px;}
+/* hover 시 떠오른 카드의 그림자가 잘리지 않도록 클립 영역을 넓힘.
+   같은 크기의 음수 여백으로 되돌려 카드 위치·크기는 그대로 둡니다 */
+.dki-out .swiper-container {padding: 8px 15px 28px; margin: -8px -15px -28px;}
+/* contents.css 의 전역 .swiper-slide{overflow:hidden} 때문에 hover 그림자가 슬라이드 경계에서 잘림 */
+.dki-out .swiper-slide {height: auto; overflow: visible;}
+.dki-out .card {display: flex; flex-direction: column; height: 100%; border: 1px solid #e9edef; border-radius: 12px; overflow: hidden; background: #fff;}
+.dki-out .card.out-mfg, .dki-modal-box.out-mfg {--ac: #1f9d76; --tint: #eef7f3;}
+.dki-out .card.out-wh, .dki-modal-box.out-wh {--ac: #f36d0c; --tint: #fff4ec;}
+.dki-out .card.out-of, .dki-modal-box.out-of {--ac: #3b7bbf; --tint: #eef4fa;}
+
+/* 화면 그림 */
+.dki-shot .shot {padding: 22px 22px 0; background: var(--tint);}
+.dki-shot .scr {display: flex; height: 168px; border-radius: 8px 8px 0 0; overflow: hidden; background: #fff;}
+.dki-shot .scr * {box-sizing: border-box;}
+.dki-shot .side {flex: 0 0 26%; padding: 11px 9px; background: var(--ac);}
+.dki-shot .side b {display: block; height: 8px; margin-bottom: 13px; border-radius: 2px; background: rgba(255,255,255,.85);}
+.dki-shot .side i {display: block; height: 5px; margin-bottom: 9px; border-radius: 2px; background: rgba(255,255,255,.38);}
+.dki-shot .side i:nth-child(3) {background: rgba(255,255,255,.75);}
+.dki-shot .body {flex: 1; min-width: 0; padding: 11px 12px;}
+.dki-shot .top {display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;}
+.dki-shot .top span {width: 46%; height: 7px; border-radius: 3px; background: #d8e0e4;}
+.dki-shot .top em {width: 28px; height: 10px; border-radius: 3px; background: var(--ac); opacity: .8;}
+.dki-shot .kpi {display: flex; gap: 6px; margin-bottom: 11px;}
+.dki-shot .kpi span {flex: 1; height: 28px; border-radius: 4px; background: #f1f4f5;}
+.dki-shot .kpi span:first-child {background: var(--tint);}
+.dki-shot .chart {display: flex; align-items: flex-end; gap: 7px; height: 56px;}
+.dki-shot .chart i {flex: 1; border-radius: 3px 3px 0 0; background: var(--ac); opacity: .5;}
+.dki-shot .chart i:nth-child(1) {height: 48%;}
+.dki-shot .chart i:nth-child(2) {height: 72%;}
+.dki-shot .chart i:nth-child(3) {height: 34%;}
+.dki-shot .chart i:nth-child(4) {height: 88%; opacity: .85;}
+.dki-shot .chart i:nth-child(5) {height: 60%;}
+.dki-shot .chart i:nth-child(6) {height: 42%;}
+.dki-shot .rows i {display: block; height: 10px; margin-bottom: 8px; border-radius: 2px; background: #eef1f2;}
+.dki-shot .rows i:nth-child(2) {width: 88%;}
+.dki-shot .rows i:nth-child(3) {width: 94%;}
+.dki-shot .rows i:last-child {width: 72%; margin-bottom: 0;}
+
+/* 카드 글 */
+.dki-out .info {padding: 24px 28px;}
+.dki-out .cat {display: block; margin-bottom: 9px; color: #8a959a; font-size: 13px; font-weight: 600;}
+.dki-out .card strong {display: block; margin-bottom: 10px; color: #111; font-size: 20px; font-weight: 700; line-height: 28px;}
+.dki-out .card p {color: #333; font-size: 17px; line-height: 28px; text-align: left;}
+
+/* 좌우 버튼 · 페이지 점 */
+.dki-out-prev, .dki-out-next {position: absolute; top: 132px; width: 44px; height: 44px; border-radius: 50%; background: #fff;
+                              box-shadow: 0 4px 14px rgba(0,0,0,.14); cursor: pointer; z-index: 2; transition: .2s;}
+.dki-out-prev {left: -8px;}
+.dki-out-next {right: -8px;}
+.dki-out-prev:before, .dki-out-next:before {content: ""; position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; margin-top: -5px;
+                                            border-top: 2px solid #55636a; border-right: 2px solid #55636a;}
+.dki-out-prev:before {margin-left: -2px; transform: rotate(-135deg);}
+.dki-out-next:before {margin-left: -7px; transform: rotate(45deg);}
+.dki-out-prev:hover, .dki-out-next:hover {box-shadow: 0 6px 18px rgba(0,0,0,.2);}
+.dki-out-prev.swiper-button-disabled, .dki-out-next.swiper-button-disabled {opacity: .3; cursor: default; box-shadow: 0 4px 14px rgba(0,0,0,.14);}
+.dki-out-pg {margin-top: 26px; text-align: center;}
+.dki-out-pg .swiper-pagination-bullet {width: 8px; height: 8px; margin: 0 4px; background: #cfd8dd; opacity: 1; transition: .2s;}
+.dki-out-pg .swiper-pagination-bullet-active {width: 22px; border-radius: 4px; background: #f36d0c;}
+
+/* 카드 클릭 → 큰 화면 팝업 */
+.dki-out .card {cursor: pointer; transition: box-shadow .2s, transform .2s;}
+.dki-out .card:hover {transform: translateY(-3px); box-shadow: 0 14px 30px rgba(17,24,39,.12);}
+.dki-out .card:focus-visible {outline: 2px solid #f36d0c; outline-offset: 3px;}
+.dki-out .shot {position: relative;}
+.dki-out .shot:after {content: "크게 보기"; position: absolute; right: 14px; top: 14px; z-index: 2; padding: 5px 11px; border-radius: 13px;
+                      background: rgba(255,255,255,.92); box-shadow: 0 2px 8px rgba(17,24,39,.12); color: #55636a; font-size: 12px; font-weight: 600;}
+
+.dki-modal {position: fixed; left: 0; top: 0; right: 0; bottom: 0; z-index: 100000000; display: flex; align-items: center; justify-content: center; padding: 24px;}
+.dki-modal[hidden] {display: none;}
+.dki-modal-bg {position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: rgba(15,20,22,.72);}
+.dki-modal-box {position: relative; width: 100%; max-width: 900px; max-height: calc(100vh - 48px); overflow: auto;
+                border-radius: 14px; background: #fff; box-shadow: 0 24px 60px rgba(0,0,0,.35);}
+.dki-modal-close {position: absolute; right: 14px; top: 14px; z-index: 3; width: 38px; height: 38px; padding: 0; border: 0; border-radius: 50%;
+                  background: rgba(255,255,255,.92); box-shadow: 0 2px 10px rgba(17,24,39,.18); cursor: pointer;}
+.dki-modal-close:before, .dki-modal-close:after {content: ""; position: absolute; left: 50%; top: 50%; width: 15px; height: 2px; margin: -1px 0 0 -7px; background: #44545b;}
+.dki-modal-close:before {transform: rotate(45deg);}
+.dki-modal-close:after {transform: rotate(-45deg);}
+.dki-modal-box .shot {padding: 30px 30px 0; border-radius: 14px 14px 0 0;}
+.dki-modal-box .shot img {display: block; width: 100%; border-radius: 8px 8px 0 0; box-shadow: 0 10px 24px rgba(0,0,0,.14);}
+.dki-modal-box .scr {height: 380px;}
+.dki-modal-box .side {padding: 22px 18px;}
+.dki-modal-box .side b {height: 15px; margin-bottom: 26px;}
+.dki-modal-box .side i {height: 9px; margin-bottom: 17px;}
+.dki-modal-box .body {padding: 22px 26px;}
+.dki-modal-box .top {margin-bottom: 20px;}
+.dki-modal-box .top span {height: 13px;}
+.dki-modal-box .top em {width: 58px; height: 20px; border-radius: 5px;}
+.dki-modal-box .kpi {gap: 12px; margin-bottom: 24px;}
+.dki-modal-box .kpi span {height: 62px; border-radius: 7px;}
+.dki-modal-box .chart {height: 132px; gap: 14px;}
+.dki-modal-box .rows i {height: 22px; margin-bottom: 16px; border-radius: 4px;}
+.dki-modal-info {padding: 26px 30px 30px;}
+.dki-modal-info .cat {display: block; margin-bottom: 9px; color: #8a959a; font-size: 13px; font-weight: 600;}
+.dki-modal-info strong {display: block; margin-bottom: 10px; color: #1d2a2e; font-size: 23px; font-weight: 700; line-height: 32px;}
+.dki-modal-info p {color: #6b777b; font-size: 16px; line-height: 26px; text-align: left;}
+
+/* 기존 AI 개발과 비교 — 2단 카드 */
+.dki-cmp {display: flex; gap: 28px; max-width: 1060px; margin: 45px auto 0; padding: 0 15px;}
+.dki-cmp .cmp-card {box-sizing: border-box; flex: 1; min-width: 0; padding: 34px 34px 30px; border: 1px solid #e9edef; border-radius: 16px; background: #fff;}
+.dki-cmp .cmp-card.kit {border-color: #ffdcc0; background: linear-gradient(160deg, #fff3e8, #fffaf6 62%, #fff);}
+.dki-cmp .cmp-t {display: block; margin-bottom: 20px; color: #55636a; font-size: 20px; font-weight: 700; letter-spacing: -0.3px;}
+.dki-cmp .kit .cmp-t {color: #e0640a;}
+.dki-cmp li {position: relative; padding: 18px 0 18px 32px; border-top: 1px solid #eef1f2; color: #7b878d; font-size: 16px; line-height: 26px;}
+.dki-cmp li:first-child {border-top: 0;}
+.dki-cmp li b {margin-right: 8px; color: #55636a; font-weight: 700;}
+.dki-cmp .kit li {border-top-color: #f7e3d3; color: #2b3f45;}
+.dki-cmp .kit li b {color: #1d2a2e;}
+/* 표시 — 기존은 짧은 선, 키트는 체크 */
+.dki-cmp li:before {content: ""; position: absolute; left: 4px; top: 30px; width: 14px; height: 2px; border-radius: 1px; background: #c6ced2;}
+.dki-cmp .kit li:before {left: 5px; top: 24px; width: 8px; height: 14px; border: solid #f36d0c; border-width: 0 2px 2px 0; border-radius: 0; background: none; transform: rotate(45deg);}
+
+/*==========  표준 단가 가이드 · 교육과 컨설팅 지원 (2026-09-21 추가)  ==========*/
+.dki-sec {margin-top: 120px;}
+.dki-sec h4.ws_hw {text-align: center;}
+.dki-sec .dki-lead {max-width: 860px; margin: 20px auto 0; padding: 0 15px; color: #6b777b; font-size: 17px; line-height: 28px; text-align: center;}
+
+/* 단가 가이드 — 회색 띠 */
+.dki-sec-price {background: #f1f1f1; padding: 120px 0;}
+.dki-price {display: flex; align-items: stretch; gap: 24px; max-width: 1100px; margin: 45px auto 0; padding: 0 15px;}
+.dki-price > li {display: flex; flex-direction: column; box-sizing: border-box; flex: 1; min-width: 0;
+                 padding: 32px 28px 30px; border: 1px solid #e6ebed; border-radius: 14px; background: #fff;}
+.dki-price > li > strong {display: block; color: #1d2a2e; font-size: 20px; font-weight: 700; letter-spacing: -0.3px;}
+.dki-price .who {display: block; min-height: 48px; margin-top: 9px; color: #7b878d; font-size: 15px; line-height: 22px;}
+
+/* 금액 — 옅은 상자로 묶어 눈이 먼저 가도록 */
+.dki-price .cost {margin-top: 6px; padding: 18px 20px 16px; border: 0; border-radius: 10px; background: #f7f9fa;}
+.dki-price .cost p {margin-top: 12px; padding-top: 12px; border-top: 1px solid #e9eef0;}
+.dki-price .cost p:first-child {margin-top: 0; padding-top: 0; border-top: 0;}
+.dki-price .cost i {display: block; margin-bottom: 6px; color: #8a959a; font-size: 13px; line-height: 1.4; font-style: normal;}
+.dki-price .cost b {display: block; color: #e0640a; font-size: 24px; line-height: 1.25; font-weight: 700; letter-spacing: -0.5px;}
+.dki-price .cost p + p b {color: #2b3f45; font-size: 18px;}
+/* 단서 문구는 줄을 따로 쓰고, 그 자리를 세 카드 모두 확보해 금액 줄을 맞춤 */
+.dki-price .cost p:first-child {min-height: 80px;}
+.dki-price .cost em {display: block; margin-top: 6px; color: #8a959a; font-size: 13px; line-height: 1.4; font-style: normal;}
+
+/* 포함 항목 */
+.dki-price ul {flex: 1; margin-top: 22px;}
+.dki-price ul li {position: relative; margin-top: 11px; padding-left: 24px; color: #555; font-size: 15px; line-height: 23px;}
+.dki-price ul li:first-child {margin-top: 0;}
+.dki-price ul li:before {content: ""; position: absolute; left: 4px; top: 5px; width: 6px; height: 11px;
+                         border: solid #f36d0c; border-width: 0 2px 2px 0; transform: rotate(45deg);}
+.dki-note {max-width: 1100px; margin: 24px auto 0; padding: 0 15px; color: #8a959a; font-size: 14px; line-height: 22px; text-align: center;}
+
+/* 교육과 컨설팅 지원 */
+.dki-help {display: flex; gap: 24px; max-width: 1270px; margin: 45px auto 0; padding: 0 15px;}
+.dki-help > li {flex: 1; min-width: 0; text-align: center;}
+.dki-help .ico {position: relative; display: block; width: 76px; height: 76px; margin: 0 auto 20px; border-radius: 50%; background: #eef2f4;}
+.dki-help h6.ws_h6 {color: #111; font-size: 20px; font-weight: 700; line-height: 28px;}
+.dki-help .key {display: inline-block; margin-top: 8px; padding: 4px 11px; border-radius: 13px; background: #fff1e6; color: #e0640a; font-size: 13px; font-weight: 700; line-height: 18px;}
+.dki-help p {margin-top: 20px; color: #333; font-size: 17px; line-height: 28px; text-align: center;}
+
+/* 지원 아이콘 (그림 자리 — CSS로 그림) */
+.ico-book:before {content: ""; position: absolute; left: 23px; top: 20px; width: 30px; height: 36px; border-radius: 4px; background: #2b3f45;}
+.ico-book:after {content: ""; position: absolute; left: 30px; top: 29px; width: 16px; height: 3px; border-radius: 2px; background: #f36d0c;
+                 box-shadow: 0 8px 0 rgba(255,255,255,.6), 0 16px 0 rgba(255,255,255,.6);}
+.ico-play:before {content: ""; position: absolute; left: 16px; top: 23px; width: 44px; height: 30px; border-radius: 5px; background: #2b3f45;}
+.ico-play:after {content: ""; position: absolute; left: 32px; top: 31px; width: 0; height: 0;
+                 border-left: 13px solid #f36d0c; border-top: 7px solid transparent; border-bottom: 7px solid transparent;}
+.ico-talk:before {content: ""; position: absolute; left: 17px; top: 20px; width: 42px; height: 30px; border-radius: 9px 9px 9px 2px; background: #2b3f45;}
+.ico-talk:after {content: ""; position: absolute; left: 26px; top: 29px; width: 20px; height: 3px; border-radius: 2px; background: #f36d0c;
+                 box-shadow: 0 8px 0 rgba(255,255,255,.6);}
+.ico-talk i {position: absolute; left: 17px; top: 48px; width: 0; height: 0; border-top: 11px solid #2b3f45; border-right: 10px solid transparent;}
+
+/* 자주 묻는 질문 */
+.dki-sec-faq {padding-bottom: 90px;}
+.dki-faq {max-width: 900px; margin: 40px auto 0; padding: 0 15px;}
+.dki-faq details {border-bottom: 1px solid #e3e8ea;}
+.dki-faq details:first-child {border-top: 1px solid #e3e8ea;}
+.dki-faq summary {position: relative; padding: 22px 46px 22px 4px; color: #1d2a2e; font-size: 17px; font-weight: 700; line-height: 26px; cursor: pointer; list-style: none;}
+.dki-faq summary::-webkit-details-marker {display: none;}
+.dki-faq summary:after {content: ""; position: absolute; right: 14px; top: 50%; width: 9px; height: 9px; margin-top: -8px;
+                        border-right: 2px solid #9aa5aa; border-bottom: 2px solid #9aa5aa; transform: rotate(45deg); transition: .2s;}
+.dki-faq details[open] summary {color: #e0640a;}
+.dki-faq details[open] summary:after {margin-top: -3px; border-color: #e0640a; transform: rotate(-135deg);}
+.dki-faq p {padding: 0 44px 24px 4px; color: #333; font-size: 17px; line-height: 28px;}
+
+/* 롤링 배너 — 슬라이드 원본이 1270×550 이라 폭을 맞춰야 아래가 잘리지 않음 */
+.ws_section06 .container #slides {max-width: 1270px; margin: 0 auto;}
+
+/* 도입 문의 버튼 — 키트 구성에서 지원 섹션 끝으로 이동 */
+.dki-sec a.gotopackage {display: block; width: 256px; height: 58px; margin: 50px auto 0; border: 1px solid #f36d0c; border-radius: 6px;
+                        color: #f36d0c; font-size: 17px; font-weight: 600; line-height: 55px; text-align: center; transition: .3s;}
+.dki-sec a.gotopackage:hover {background-color: #fff9f4;}
+
+@media all and (max-width: 980px) {
+	.ws_section08 > ul.dki-kit {flex-wrap: wrap; gap: 18px;}
+	.ws_section08 > ul.dki-kit > li {flex: 0 0 100%;}
+	.ws_section08 > ul.dki-kit > li h6.ws_h6 {font-size: 19px;}
+	.kit-body {padding: 22px 20px 24px;}
+	/* 화면이 좁아질수록 그림 자리가 세로로 너무 길어지지 않도록 */
+	.ws_section12 .dki {aspect-ratio: 16 / 9;}
+	.dki-kit .items li {padding: 13px 0;}
+	.dki-kit .items b {font-size: 15px;}
+	.dki-kit .items span {font-size: 13px; line-height: 21px;}
+	.ws_section08 .dki-hl {gap: 12px; margin-bottom: 28px; padding: 16px 18px; font-size: 15px; line-height: 24px;}
+	.ws_section08 .dki-hl strong {font-size: 24px;}
+	.dki-cmp {flex-wrap: wrap; gap: 16px; margin-top: 28px;}
+	.dki-cmp .cmp-card {flex: 0 0 100%; padding: 32px;}
+	.dki-cmp .cmp-t {margin-bottom: 14px; font-size: 21px;}
+	.dki-cmp li {padding: 15px 0 15px 29px; font-size: 15px; line-height: 24px;}
+	.dki-cmp li:before {top: 27px;}
+	.dki-cmp .kit li:before {top: 22px;}
+	.dki-out {margin-top: 26px;}
+	/* 점이 8px 라 손가락으로 누르기 어려움 — 보이는 크기는 그대로 두고 눌리는 범위만 넓힘 */
+	.dki-out-pg .swiper-pagination-bullet {position: relative;}
+	.dki-out-pg .swiper-pagination-bullet:after {content: ""; position: absolute; left: -8px; right: -8px; top: -14px; bottom: -14px;}
+	.dki-modal {padding: 16px;}
+	.dki-modal-box .shot {padding: 20px 20px 0;}
+	.dki-modal-box .scr {height: 240px;}
+	.dki-modal-box .side {padding: 14px 11px;}
+	.dki-modal-box .side b {height: 10px; margin-bottom: 16px;}
+	.dki-modal-box .side i {height: 6px; margin-bottom: 11px;}
+	.dki-modal-box .kpi span {height: 40px;}
+	.dki-modal-box .chart {height: 84px;}
+	.dki-modal-box .rows i {height: 14px; margin-bottom: 10px;}
+	.dki-modal-info {padding: 20px 20px 24px;}
+	.dki-modal-info strong {font-size: 20px; line-height: 29px;}
+	.dki-out-prev, .dki-out-next {display: none;}
+	.dki-out .card strong {font-size: 18px; line-height: 26px;}
+	.dki-out .info {padding: 20px 20px 24px;}
+	.dki-sec {margin-top: 60px;}
+	.dki-sec-price {padding: 50px 0;}
+	.dki-sec .dki-lead {font-size: 15px; line-height: 24px;}
+	.dki-price {flex-wrap: wrap; gap: 14px; margin-top: 28px;}
+	.dki-price > li {flex: 0 0 100%; padding: 26px 22px 24px;}
+	.dki-price .who {min-height: 0;}
+	.dki-price .cost {padding: 16px 18px 14px;}
+	.dki-price .cost b {font-size: 23px;}
+	.dki-price ul {margin-top: 18px;}
+	.dki-price ul li {font-size: 14px; line-height: 22px;}
+	.dki-help {flex-wrap: wrap; gap: 34px; margin-top: 28px;}
+	.dki-help > li {flex: 0 0 100%;}
+	.dki-note {margin-top: 20px; font-size: 13px;}
+	.dki-sec-faq {padding-bottom: 60px;}
+	.dki-faq {margin-top: 24px;}
+	.dki-faq summary {padding: 18px 40px 18px 2px; font-size: 16px; line-height: 25px;}
+	.dki-faq p {padding: 0 40px 20px 2px; font-size: 14px; line-height: 25px;}
+	.dki-sec a.gotopackage {margin-top: 34px;}
+}
+
+/*==========  모바일 마무리  ==========*/
+@media all and (max-width: 767px) {
+	/* 롤링 배너 — 좌우 버튼이 슬라이드 위를 덮어 내용이 가려지던 문제. 이미지 아래로 내림 */
+	.ws_section06 .container {padding-bottom: 56px;}
+	a.slidesjs-previous.slidesjs-navigation, a.slidesjs-next.slidesjs-navigation {width: 42px; height: 42px; background-size: 42px 42px; top: auto; bottom: 7px;}
+	a.slidesjs-previous.slidesjs-navigation {right: 50%; margin-right: 5px;}
+	a.slidesjs-next.slidesjs-navigation {right: 50%; margin-right: -47px;}
+}
+@media all and (max-width: 640px) {
+	/* 그림 자리를 4:3 → 3:2 로 낮춰 스크롤 길이를 줄임 */
+	.ws_section12 .dki {aspect-ratio: 3 / 2;}
+	.dki-kit .dki {height: 168px;}
+	.dki-kit .dki-base .win {width: 250px; margin-left: -150px; top: 26px;}
+	.dki-kit .dki-base .box {width: 92px; height: 92px; margin-left: 42px; bottom: 24px;}
+	.dki-kit .dki-hyb .row {width: 240px;}
+	.dki-out .scr {height: 150px;}
+	.dki-out .info {padding: 18px 18px 22px;}
+}

@@ -15,9 +15,9 @@ udzero@charset "utf-8";
 
 h1 { font-size:42px;}
 h2 {font-size:50px;}
-h3 {font-size:35px;}
-h4 {font-size:30px;}
-h5 {font-size:25px;}
+h3 {font-size:36px;}
+h4 {font-size:32px;}
+h5 {font-size:24px;}
 h6 {font-size:20px;}
 
 #wrapper {position:relative; width:100%; /*overflow: hidden;*/}
@@ -146,7 +146,7 @@ ul.gnb {position: relative; float: left; background: #fff; margin-left: 20px;}
 ul.gnb>li {position: relative; float:left; font-size:17px;}
 ul.gnb li a {text-decoration: none;}
 ul.gnb>li>a {display: block; position: relative; color: #111; padding: 26px 20px; letter-spacing: 0px; font-weight: 500;}
-ul.gnb>li>a::after {position:absolute; bottom:-1px; left: 50%; margin-left: -35px; width: 70px; height: 3px; background: #f36d0c; content: ''; display: none;}
+ul.gnb>li>a::after {position:absolute; bottom:-3px; left: 50%; margin-left: -35px; width: 70px; height: 3px; background: #f36d0c; content: ''; display: none;}
 /* 하위메뉴: 메뉴 바로 아래 드롭다운 카드 (열고 닫기는 tail.php 의 .more hover 스크립트) */
 ul.gnb li ul {position: absolute; top: 78px; left: 50%; width: 168px; margin-left: -84px; padding: 8px; box-sizing: border-box; border: 1px solid #eceef1; border-radius: 12px; background: #fff; box-shadow: 0 12px 32px rgba(17,24,39,.12); display: none; z-index: 5;}
 ul.gnb li ul::before {content: ''; position: absolute; left: 0; right: 0; top: -12px; height: 12px;} /* 메뉴~카드 사이 틈: 마우스 이동 중 닫히지 않게 */
@@ -379,7 +379,7 @@ div#sub___wrap {
 
 /* 웨어러블스캐너 */
 h4.ws_hw {
-    font-weight: 600;
+    font-weight: 700;
     color: #2f3c53;
 }
 p.sub__p{
@@ -656,7 +656,7 @@ p.p2 {
 }
 .ws_section06 h4.ws_hw {
 	text-align: center;
-	padding:60px 0 0 0;
+	padding:120px 0 0 0;
 	background-color:#f1f1f1;
 }
 
@@ -709,7 +709,7 @@ p.p2 {
 .ws_section08 > ul > li h6.ws_h6 {
     padding-top: 14px;
     padding-bottom: 50px;
-	font-size:18px;
+	font-size:20px;
 }
 .ws_section08 > ul > li {
     float: left;
@@ -898,7 +898,7 @@ p.p2 {
 	font-size:20px;
 	line-height:30px;
     padding: 40px 40px 30px 40px;
-    font-weight: 500;
+    font-weight: 700;
 }
 p.sub_p12 {
 	font-size: 17px;
