@@ -873,7 +873,7 @@ p.p2 {
 }
 .ws_section12 h4.ws_hw {
     text-align: center;
-	margin-bottom:50px;
+	margin-bottom: 60px;
 }
 .ws_section12 > ul {
     overflow: hidden;
@@ -905,7 +905,6 @@ p.sub_p12 {
 	color: #333;
 	padding: 40px;
 	padding-top: 0px;
-	letter-spacing: -0.2px;
 	line-height: 28px;
 }
 p.sub_p13 {
