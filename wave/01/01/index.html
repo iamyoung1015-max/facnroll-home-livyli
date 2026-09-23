@@ -95,7 +95,7 @@ var g5_shop_url = "/shop";
 					<ul class="gnb">
 						<li class=""><a href="#">솔루션몰</a></li>
 						<li class=""><a href="#">고객사례</a></li>
-						<li class="on"><a href="#">개발키트<span class="nav_new">N</span></a></li>
+						<li class="on"><a href="../../../wave/01/01/" data-nav="1">개발키트<span class="nav_new">N</span></a></li>
 						<li class=""><a href="#">제품구매</a></li>
 						<li class="more "><a href="#"><span>고객지원</span></a>
 							<ul>
@@ -150,7 +150,7 @@ var g5_shop_url = "/shop";
 					<ul>
 						<li><a href="#">솔루션몰</a></li>
 						<li><a href="#">고객사례</a></li>
-						<li><a href="#">개발키트<span class="nav_new">N</span></a></li>
+						<li><a href="../../../wave/01/01/" data-nav="1">개발키트<span class="nav_new">N</span></a></li>
 						<li><a href="#">제품구매</a></li>
 						<li><a href="#">블로그<img src="../../../_img/utility/menu_blog.png" style="margin-left: 0; width: auto;" alt="블로그 외부 링크"></a></li>
 					</ul>
@@ -383,114 +383,96 @@ var g5_shop_url = "/shop";
 </div>
 </div>
 
-<div class="ws_section06 dki-flow-sec dki-band dki-band-g">
+<!-- [시안 2026-09-23] 자동개발 플랫폼 가이드 — 좌: 세로 단계 목록 / 우: 화면+설명 카드 -->
+<div class="ws_section06 dki-g2 dki-band">
   <h4 class="ws_hw">자동개발 플랫폼 가이드</h4>
   <p class="dki-lead">만드는 과정부터 업무 시스템 운영까지 자동개발 플랫폼에서 관리합니다.</p>
 
-  <p class="dki-grp">만드는 과정<span>요구사항에서 배포까지</span></p>
-  <div class="dki-step">
-	<div class="dki-step-tabs"></div>
-	<div class="swiper-container dki-step-swiper">
+  <div class="g2-flow">
+	<div class="g2-nav">
+		<p class="g2-cap">만드는 과정</p>
+		<div class="g2-steps"></div>
+	</div>
+	<div class="swiper-container g2-swiper">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
-				<!-- 화면 이미지가 준비되면 .shot 안을 <img> 로 교체 -->
-				<div class="shot"><span>이미지 준비 중</span></div>
-				<div class="desc">
-					<span class="no">Step. 01</span>
-					<strong>요구사항 입력</strong>
-					<p>만들고 싶은 업무 시스템에 대한 기능을 설명글으로 입력합니다.</p>
+				<div class="g2-shot"><img src="../../../_img/sub/devkit_step01.png" alt="요구사항 입력 화면"></div>
+				<div class="g2-desc">
+					<p>만들고 싶은 업무 시스템에 대한 내용을 자유롭게 입력하면 AI가 정리해 줍니다.</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
-				<!-- 화면 이미지가 준비되면 .shot 안을 <img> 로 교체 -->
-				<div class="shot"><span>이미지 준비 중</span></div>
-				<div class="desc">
-					<span class="no">Step. 02</span>
-					<strong>설계서 생성</strong>
-					<p>요구사항 대로 기능, 화면, DB 설계서가 자동으로 생성됩니다.</p>
-					<p class="tip"><b>승인</b> 문서를 확인하고 승인해야 다음 단계로 진행됩니다.</p>
+				<div class="g2-shot"><img src="../../../_img/sub/devkit_step02.png" alt="요구사항 정의서 생성 화면"></div>
+				<div class="g2-desc">
+					<p>입력한 내용을 바탕으로 기능 범위가 담긴 요구사항 정의서(PRD)가 생성됩니다.</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
-				<!-- 화면 이미지가 준비되면 .shot 안을 <img> 로 교체 -->
-				<div class="shot"><span>이미지 준비 중</span></div>
-				<div class="desc">
-					<span class="no">Step. 03</span>
-					<strong>화면 시안 생성</strong>
+				<div class="g2-shot"><img src="../../../_img/sub/devkit_step03.png" alt="설계서 생성 화면"></div>
+				<div class="g2-desc">
+					<p>요구사항대로 기능, 화면, DB 설계서가 생성됩니다.</p>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="g2-shot"><img src="../../../_img/sub/devkit_step04.png" alt="화면 시안 생성 화면"></div>
+				<div class="g2-desc">
 					<p>팩앤롤 템플릿이 적용된 화면을 시안으로 먼저 확인합니다.</p>
-					<p class="tip"><b>승인</b> 코드를 만들기 전에 화면을 먼저 합의합니다.</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
-				<!-- 화면 이미지가 준비되면 .shot 안을 <img> 로 교체 -->
-				<div class="shot"><span>이미지 준비 중</span></div>
-				<div class="desc">
-					<span class="no">Step. 04</span>
-					<strong>자동 개발</strong>
-					<p>승인된 설계대로 업무 시스템이 만들어집니다.</p>
+				<div class="g2-shot"><img src="../../../_img/sub/devkit_step05.png" alt="자동 개발 화면"></div>
+				<div class="g2-desc">
+					<p>승인된 설계서대로 업무 시스템이 만들어집니다.</p>
 				</div>
 			</div>
 			<div class="swiper-slide">
-				<!-- 화면 이미지가 준비되면 .shot 안을 <img> 로 교체 -->
-				<div class="shot"><span>이미지 준비 중</span></div>
-				<div class="desc">
-					<span class="no">Step. 05</span>
-					<strong>시스템 확인</strong>
-					<p>바로 접속할 수 있는 시스템 주소와 계정이 생성되고, AI를 통해 시스템을 업그레이드 할 수 있습니다.</p>
+				<div class="g2-shot"><img src="../../../_img/sub/devkit_step06.png" alt="시스템 확인 화면"></div>
+				<div class="g2-desc">
+					<p>개발이 완료되면 접속할 수 있는 주소와 계정이 생성되고, AI를 통해 시스템을 업그레이드 할 수 있습니다.</p>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="dki-step-nav">
-		<button type="button" class="dki-step-prev" aria-label="이전 단계"></button>
-		<button type="button" class="dki-step-next" aria-label="다음 단계"></button>
-	</div>
   </div>
 
+  <p class="g2-cap g2-cap2">만들고 나서 관리</p>
+  <ol class="g2-ops">
+	<li>
+		<strong>AI 사용량 관리</strong>
+		<p>각 단계별 소요 시간과 토큰 사용량을 확인하고, 세션 한도를 관리할 수 있습니다.</p>
+	</li>
+	<li>
+		<strong>계정 관리대장</strong>
+		<p>접속 주소, 데이터베이스, 포트, 계정 정보를 한곳에 모아 관리합니다. 비밀번호는 암호화하여 보관하며 열람 기록이 남습니다.</p>
+	</li>
+	<li>
+		<strong>백업과 유지관리</strong>
+		<p>사이트 시작과 중지, 소스 및 데이터베이스 백업·복원, 야간 자동 백업, 사이트 복제까지 화면에서 손쉽게 처리합니다.</p>
+	</li>
+  </ol>
 
   <script>
   (function () {
-	function initStepSwiper() {
+	function initG2() {
 		if (typeof Swiper === 'undefined') return;
-		new Swiper('.dki-step-swiper', {
+		new Swiper('.g2-swiper', {
 			slidesPerView: 1,
-			speed: 500,
-			autoHeight: false,
-			navigation: { nextEl: '.dki-step-next', prevEl: '.dki-step-prev' },
+			speed: 450,
+			autoHeight: true,
 			pagination: {
-				el: '.dki-step-tabs',
+				el: '.g2-steps',
 				clickable: true,
-				// 점 대신 단계 이름 — 눌러서 바로 이동
 				renderBullet: function (i, cls) {
-					var t = ['요구사항 입력', '설계서 생성', '화면 시안 생성', '자동 개발', '시스템 확인'];
+					var t = ['요구사항 입력', '요구사항 정의서 생성', '설계서 생성', '화면 시안 생성', '자동 개발', '시스템 확인'];
 					return '<span class="' + cls + '" data-no="0' + (i + 1) + '">' + t[i] + '</span>';
 				}
 			}
 		});
 	}
-	if (document.readyState === 'complete') initStepSwiper();
-	else window.addEventListener('load', initStepSwiper);
+	if (document.readyState === 'complete') initG2();
+	else window.addEventListener('load', initG2);
   })();
   </script>
-
-  <p class="dki-grp">만든 뒤<span>서버 관리</span></p>
-  <ul class="dki-ops">
-	<li>
-		<strong>계정 관리대장</strong>
-		<span class="key">접속 주소·계정을 한 대장에</span>
-		<p>플랫폼이 만든 시스템은 물론 손으로 만든 시스템까지, 접속 주소와 데이터베이스·포트·계정을 한자리에 모아 관리합니다. 비밀번호는 암호화해 보관하고 열람 기록이 남습니다.</p>
-	</li>
-	<li>
-		<strong>백업과 운영</strong>
-		<span class="key">화면에서 버튼으로</span>
-		<p>사이트 시작과 중지, 소스·데이터베이스 백업과 복원, 야간 자동 백업, 기존 사이트를 복사해 새로 만들기까지 화면에서 처리합니다.</p>
-	</li>
-	<li>
-		<strong>만들자마자 접속</strong>
-		<span class="key">서버 재시작 없음</span>
-		<p>새 시스템이 생겨도 서버 설정을 고치지 않는 구조입니다. 재시작이 없으니 이미 운영 중인 다른 시스템이 멈추지 않습니다.</p>
-	</li>
-  </ul>
 </div>
 
 <!-- [시안 2026-09-22] 스마트 웨어러블 바코드 스캐너 — 개발키트 페이지에서 숨김.
@@ -576,13 +558,13 @@ var g5_shop_url = "/shop";
 	<h4 class="ws_hw">만들어지는 결과물</h4>
 	<p class="dki-lead">개발키트로 만든 업무 시스템을 확인해 보세요.</p>
 
-	<!-- [시안 2026-09-22] 화면 캡처가 준비되면 .shot 안을 <img> 로 바꾸고 카드의 data-img 에 같은 경로를 넣으면 클릭 확대가 살아납니다 -->
+	<!-- 카드 화면은 /_img/sub/devkit_out01~06.png — 실제 캡처로 파일만 덮어쓰면 됩니다 -->
 	<div class="dki-out">
 		<div class="swiper-container dki-out-swiper">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
-					<div class="card out-mfg dki-shot" role="button" tabindex="0" data-img="">
-						<div class="shot"><span>이미지 준비 중</span></div>
+					<div class="card out-mfg dki-shot" role="button" tabindex="0" data-img="/_img/sub/devkit_out01.png">
+						<div class="shot"><img src="../../../_img/sub/devkit_out01.png" alt="생산 실적 자동 집계 대시보드 화면"></div>
 						<div class="info">
 							<span class="cat">제조</span>
 							<strong>생산 실적 자동 집계 대시보드</strong>
@@ -591,8 +573,8 @@ var g5_shop_url = "/shop";
 					</div>
 				</div>
 				<div class="swiper-slide">
-					<div class="card out-mfg dki-shot" role="button" tabindex="0" data-img="">
-						<div class="shot"><span>이미지 준비 중</span></div>
+					<div class="card out-mfg dki-shot" role="button" tabindex="0" data-img="/_img/sub/devkit_out02.png">
+						<div class="shot"><img src="../../../_img/sub/devkit_out02.png" alt="품질 불량 데이터 분석·리포트 화면"></div>
 						<div class="info">
 							<span class="cat">제조</span>
 							<strong>품질 불량 데이터 분석·리포트</strong>
@@ -601,8 +583,8 @@ var g5_shop_url = "/shop";
 					</div>
 				</div>
 				<div class="swiper-slide">
-					<div class="card out-mfg dki-shot" role="button" tabindex="0" data-img="">
-						<div class="shot"><span>이미지 준비 중</span></div>
+					<div class="card out-mfg dki-shot" role="button" tabindex="0" data-img="/_img/sub/devkit_out03.png">
+						<div class="shot"><img src="../../../_img/sub/devkit_out03.png" alt="설비 점검 이력 관리 화면"></div>
 						<div class="info">
 							<span class="cat">제조</span>
 							<strong>설비 점검 이력 관리</strong>
@@ -611,8 +593,8 @@ var g5_shop_url = "/shop";
 					</div>
 				</div>
 				<div class="swiper-slide">
-					<div class="card out-wh dki-shot" role="button" tabindex="0" data-img="">
-						<div class="shot"><span>이미지 준비 중</span></div>
+					<div class="card out-wh dki-shot" role="button" tabindex="0" data-img="/_img/sub/devkit_out04.png">
+						<div class="shot"><img src="../../../_img/sub/devkit_out04.png" alt="입출고·재고 현황 관리 화면"></div>
 						<div class="info">
 							<span class="cat">물류·창고</span>
 							<strong>입출고·재고 현황 관리</strong>
@@ -621,8 +603,8 @@ var g5_shop_url = "/shop";
 					</div>
 				</div>
 				<div class="swiper-slide">
-					<div class="card out-wh dki-shot" role="button" tabindex="0" data-img="">
-						<div class="shot"><span>이미지 준비 중</span></div>
+					<div class="card out-wh dki-shot" role="button" tabindex="0" data-img="/_img/sub/devkit_out05.png">
+						<div class="shot"><img src="../../../_img/sub/devkit_out05.png" alt="반출입 관리 화면"></div>
 						<div class="info">
 							<span class="cat">물류·창고</span>
 							<strong>반출입 관리</strong>
@@ -631,8 +613,8 @@ var g5_shop_url = "/shop";
 					</div>
 				</div>
 				<div class="swiper-slide">
-					<div class="card out-of dki-shot" role="button" tabindex="0" data-img="">
-						<div class="shot"><span>이미지 준비 중</span></div>
+					<div class="card out-of dki-shot" role="button" tabindex="0" data-img="/_img/sub/devkit_out06.png">
+						<div class="shot"><img src="../../../_img/sub/devkit_out06.png" alt="장비 대여·반납 관리 화면"></div>
 						<div class="info">
 							<span class="cat">사내 관리</span>
 							<strong>장비 대여·반납 관리</strong>
@@ -728,7 +710,10 @@ var g5_shop_url = "/shop";
 				document.body.style.right = '';
 				window.scrollTo(0, lockY);
 				if (sw.autoplay) sw.autoplay.start();
-				if (lastFocus && lastFocus.focus) lastFocus.focus();
+				// 포커스를 되돌릴 때 브라우저가 그 요소로 스크롤하지 않도록 (닫은 뒤 화면이 아래로 튀던 원인)
+				if (lastFocus && lastFocus.focus) {
+					try { lastFocus.focus({ preventScroll: true }); } catch (err) { lastFocus.focus(); }
+				}
 			}
 
 			outer.addEventListener('click', function (e) {
@@ -793,7 +778,7 @@ var g5_shop_url = "/shop";
 </div>
 -->
 
-<div class="dki-sec dki-sec-price dki-band">
+<div class="dki-sec dki-sec-price dki-band dki-band-s">
 	<h4 class="ws_hw">표준 단가 가이드</h4>
 	<p class="dki-lead">실제 금액은 사양과 현장 환경에 따라 상담에서 확정합니다.</p>
 	<ul class="dki-price">
@@ -847,7 +832,7 @@ var g5_shop_url = "/shop";
 
 <div class="dki-sec dki-sec-help dki-band">
 	<h4 class="ws_hw">교육과 컨설팅 지원</h4>
-	<p class="dki-lead">교재와 영상으로 익히고, 막히는 자리는 상담으로 풉니다.</p>
+	<p class="dki-lead">교재와 영상으로 익히고, 막히는 부분은 상담을 통해 해결합니다.</p>
 	<ul class="dki-help">
 		<li>
 			<span class="ico ico-book"></span>
@@ -870,29 +855,10 @@ var g5_shop_url = "/shop";
 	</ul>
 </div>
 
-<!-- [시안 2026-09-22] 보유 특허 -->
-<div class="dki-sec dki-sec-pat dki-band dki-band-g">
-	<h4 class="ws_hw">보유 특허</h4>
-	<ul class="dki-pat">
-		<li>
-			<span class="no">특허 제10-2251050호</span>
-			<strong>스마트 공장 어플리케이션 개발을 위한 클라우드 플랫폼 자동 생성 장치</strong>
-		</li>
-		<li>
-			<span class="no">특허 제10-2239962호</span>
-			<strong>문서서식 기반 정보화 플랫폼 제공 장치</strong>
-		</li>
-		<li>
-			<span class="no">특허 제10-2653511호</span>
-			<strong>지능형 생산공정 관리 장치</strong>
-		</li>
-	</ul>
-</div>
-
-<!-- [시안 2026-09-22] 왜 팩앤롤인가 -->
-<div class="dki-sec dki-sec-why dki-band">
+<!-- [시안 2026-09-23] 믿고 맡길 수 있는 실행 파트너 — 실적·고객사·인증·특허를 한 섹션에 -->
+<div class="dki-sec dki-sec-why dki-band dki-band-s">
 	<!-- <p class="dki-eyebrow">왜 팩앤롤인가</p> -->
-	<h4 class="ws_hw">제조·물류 현장을 잘 아는 실행 파트너</h4>
+	<h4 class="ws_hw">믿고 맡길 수 있는 실행 파트너</h4>
 
 	<ul class="dki-stat">
 		<li><span class="lb">기업 맞춤 솔루션 구축</span><strong><i class="num" data-count="100">100</i><em>+건</em></strong></li>
@@ -922,6 +888,15 @@ var g5_shop_url = "/shop";
 		</li>
 	</ul>
 
+	<div class="dki-patrow">
+		<strong>보유 특허</strong>
+		<ul>
+			<li><b>제10-2251050호</b>스마트 공장 어플리케이션 개발을 위한 클라우드 플랫폼 자동 생성 장치</li>
+			<li><b>제10-2239962호</b>문서서식 기반 정보화 플랫폼 제공 장치</li>
+			<li><b>제10-2653511호</b>지능형 생산공정 관리 장치</li>
+		</ul>
+	</div>
+
 	<script>
 	(function () {
 		var nums = document.querySelectorAll('.dki-stat .num[data-count]');
@@ -948,7 +923,7 @@ var g5_shop_url = "/shop";
 	</script>
 </div>
 
-<div class="dki-sec dki-sec-faq dki-band dki-band-g">
+<div class="dki-sec dki-sec-faq dki-band">
 	<h4 class="ws_hw">자주 묻는 질문</h4>
 	<div class="dki-faq">
 		<details open>
@@ -1695,7 +1670,7 @@ $(function() {
 <script>
 (function () {
 	var SUB = true;
-	function allowed(el) { return el.closest && (el.closest('#main_visual_controllers') || (SUB && !el.closest('a, button[type=submit], input[type=submit]'))); }
+	function allowed(el) { return el.closest && (el.closest('[data-nav]') || el.closest('#main_visual_controllers') || (SUB && !el.closest('a, button[type=submit], input[type=submit]'))); }
 	['click', 'auxclick', 'dblclick'].forEach(function (type) {
 		window.addEventListener(type, function (e) {
 			if (allowed(e.target)) return;
