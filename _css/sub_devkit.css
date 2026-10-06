@@ -1,24 +1,51 @@
+@charset "utf-8";
+
+/* ===== 글자 크기 체계 =====
+   역할별로 한 곳에서 정의하고, 화면이 좁아지면 값만 바꾼다.
+   새 규칙을 만들 때는 px 를 직접 쓰지 말고 아래 변수를 쓴다.
+     --fs-stat      큰 숫자(실적)            --fs-title   카드 제목
+     --fs-h3        그룹 제목·팝업 제목      --fs-price   금액
+     --fs-body      본문                     --fs-sub     보조 본문
+     --fs-small     작은 안내·배지 글        --fs-cap     캡션·분류
+     --fs-badge     가장 작은 표기                                   */
+:root {
+	--fs-stat: 72px; --fs-stat-unit: 36px;
+	--fs-h3: 22px; --fs-title: 20px;
+	--fs-price: 24px; --fs-price-sub: 20px;
+	--fs-body: 17px; --fs-sub: 16px; --fs-small: 15px; --fs-cap: 14px; --fs-badge: 13px;
+}
+@media all and (min-width: 981px) and (max-width: 1200px) {   /* 좁은 PC — 3칸 카드 안 금액이 줄바꿈되지 않도록 */
+	:root {--fs-price: 21px; --fs-price-sub: 18px;}
+}
+@media all and (max-width: 980px) {                            /* 태블릿·모바일 */
+	:root {
+		--fs-stat: 30px; --fs-stat-unit: 15px;
+		--fs-h3: 18px; --fs-title: 18px;
+		--fs-price: 22px; --fs-price-sub: 18px;
+		--fs-body: 15px; --fs-sub: 14px; --fs-small: 13px; --fs-cap: 13px; --fs-badge: 12px;
+	}
+}
+
 /* 보유 특허 — 근거 카드 아래 한 줄 카드 */
 .dki-patrow {max-width: 1100px; margin: 24px auto 0; padding: 40px 36px;
              border: 1px solid #e3e8ea; border-radius: 10px; background: #fff; text-align: left;}
-.dki-patrow > strong {display: block; margin-bottom: 22px; color: #111; font-size: 20px; font-weight: 700; letter-spacing: -0.3px;}
+.dki-patrow > strong {display: block; margin-bottom: 22px; color: #111; font-size: var(--fs-title); font-weight: 700; letter-spacing: -0.3px;}
 .dki-patrow li {position: relative; padding: 11px 0 11px 132px; border-top: 1px solid #f1f4f5;
-                color: #333; font-size: 17px; line-height: 28px;}
+                color: #333; font-size: var(--fs-body); line-height: 28px;}
 .dki-patrow li:first-child {border-top: 0;}
-.dki-patrow li b {position: absolute; left: 0; top: 12px; color: #2f3c53; font-size: 14px; font-weight: 700;}
-@charset "utf-8";
+.dki-patrow li b {position: absolute; left: 0; top: 12px; color: #2f3c53; font-size: var(--fs-cap); font-weight: 700;}
 /*==========  [시안 2026-09-21] 자동개발키트 소개 페이지 (/wave/01/01)  ==========*/
 /* 제품 사진이 없는 자리는 HTML/CSS 그림으로 대체. 레이아웃(섹션·카드 배치)은 기존 그대로 */
 
-/* 좁은 화면 가로 넘침 보정 — contents.css 의 .main_visual .contents 가 width:1270px 고정이라
+/* 좁은 화면 가로 넘침 보정 — contents.css 의 .main_visual .contents 가 width:1270px 고정이라 (여기서는 .dki-hero 로 한정)
    뷰포트가 그보다 좁으면 페이지 전체에 가로 스크롤이 생긴다 (이 페이지에만 적용) */
-.main_visual .contents {width: 100%; max-width: 1270px;}
+.dki-hero .contents {width: 100%; max-width: 1270px;}
 @media all and (max-width: 1300px) {
-	.main_visual .contents {box-sizing: border-box; padding: 0 15px;}
+	.dki-hero .contents {box-sizing: border-box; padding: 0 15px;}
 }
 
 /* 상단 배너 배경 — 메인 배너와 같은 이미지 */
-#sub01 {background: linear-gradient(90deg, rgba(10,4,0,.82) 0%, rgba(10,4,0,.5) 42%, rgba(10,4,0,.15) 70%), url('../_img/main/main_visual_devkit.jpg') no-repeat center 2% / cover, #0a0400 !important;}
+.dki-hero {background: linear-gradient(90deg, rgba(10,4,0,.82) 0%, rgba(10,4,0,.5) 42%, rgba(10,4,0,.15) 70%), url('../_img/main/main_visual_devkit.jpg') no-repeat center 2% / cover, #0a0400 !important;}
 
 /* 그림 자리 공통 */
 .dki {position: relative; width: 100%; aspect-ratio: 4 / 3; border-radius: 6px; overflow: hidden;
@@ -69,16 +96,16 @@
 /* AI 비서 */
 
 /* 3칸 소개 카드 — 모서리를 다른 섹션 카드(12px)와 맞춤 */
-.ws_section12 > ul > li {border-radius: 10px; overflow: hidden;}
-.ws_section12 .dki {border-radius: 0;}
+.dki-intro > ul > li {border-radius: 10px; overflow: hidden;}
+.dki-intro .dki {border-radius: 0;}
 
 /* 키트 구성 — 하드웨어 / 소프트웨어 2가지 */
-.ws_section08 > ul.dki-kit {display: flex; align-items: stretch; gap: 28px; overflow: visible;}
-.ws_section08 > ul.dki-kit > li {display: flex; flex-direction: column; box-sizing: border-box; float: none; width: auto;
+.dki-kitsec > ul.dki-kit {display: flex; align-items: stretch; gap: 28px; overflow: visible;}
+.dki-kitsec > ul.dki-kit > li {display: flex; flex-direction: column; box-sizing: border-box; float: none; width: auto;
                                  flex: 1; min-width: 0; margin: 0; border: 1px solid #e3e8ea; border-radius: 10px;
                                  overflow: hidden; background: #fff; text-align: left;}
-.ws_section08 > ul.dki-kit > li h6.ws_h6 {padding: 0; color: #111; font-size: 20px; font-weight: 700; text-align: left;}
-.ws_section08 > ul.dki-kit > li h6.ws_h6 .sub {display: inline-block; margin-left: 9px; padding: 4px 10px; border-radius: 12px;
+.dki-kitsec > ul.dki-kit > li h6.ws_h6 {padding: 0; color: #111; font-size: var(--fs-title); font-weight: 700; text-align: left;}
+.dki-kitsec > ul.dki-kit > li h6.ws_h6 .sub {display: inline-block; margin-left: 9px; padding: 4px 10px; border-radius: 12px;
                                                background: #eef2f4; color: #7b878d; font-size: 12px; font-weight: 600; vertical-align: 3px;}
 .dki-kit > li:first-child h6.ws_h6 .sub {background: #e2f4f1; color: #2b8073;}
 
@@ -92,12 +119,12 @@
 .dki-kit .dki-hyb .row div:nth-child(3) {height: 68px;}
 
 /* 카드 본문 */
-.kit-body {display: flex; flex-direction: column; flex: 1; padding: 36px 32px;}
+.dki-kit-body {display: flex; flex-direction: column; flex: 1; padding: 36px 32px;}
 .dki-kit .items {display: flex; flex-direction: column; flex: 1; gap: 12px; margin-top: 18px; text-align: left;}
 .dki-kit .items > li {display: flex; flex-direction: column; justify-content: center; flex: 1;
                       padding: 24px; border-radius: 10px; background: #f7f9fa;}
-.dki-kit .items b {display: block; margin-bottom: 12px; color: #111; font-size: 17px; font-weight: 700;}
-.dki-kit .items span {display: block; color: #333; font-size: 17px; line-height: 28px;}
+.dki-kit .items b {display: block; margin-bottom: 12px; color: #111; font-size: var(--fs-body); font-weight: 700;}
+.dki-kit .items span {display: block; color: #333; font-size: var(--fs-body); line-height: 28px;}
 
 .dki-kit .items .part {position: relative; padding-left: 11px;}
 .dki-kit .items .part + .part {margin-top: 6px;}
@@ -119,10 +146,10 @@
 .dki-sw .main span:last-child {margin-bottom: 0; width: 52%; background: #cfd8dd;}
 
 /* 키트 구성 — 제목 아래 강조 띠 */
-.ws_section08 h4.ws_hw {margin-bottom: 60px;}
-.ws_section08 .dki-hl {display: flex; align-items: center; justify-content: center; gap: 16px; width: fit-content; max-width: 100%; margin: 0 auto 46px; padding: 24px 32px; border-radius: 10px;
+.dki-kitsec h4.ws_hw {margin-bottom: 60px;}
+.dki-kitsec .dki-hl {display: flex; align-items: center; justify-content: center; gap: 16px; width: fit-content; max-width: 100%; margin: 0 auto 46px; padding: 24px 32px; border-radius: 10px;
                        background: #e8f7f6; color: #2b4a50; font-size: 20px; font-weight: 500; line-height: 26px;}
-.ws_section08 .dki-hl strong {flex: none; color: #1d2a2e; font-size: 28px; font-weight: 800; letter-spacing: -0.5px;}
+.dki-kitsec .dki-hl strong {flex: none; color: #1d2a2e; font-size: 28px; font-weight: 800; letter-spacing: -0.5px;}
 
 /* 만들어지는 결과물 — 카드 캐러셀 (Swiper 4, tail.php 에서 로드) */
 .dki-out {position: relative; max-width: 1270px; margin: 60px auto 0;}
@@ -149,9 +176,9 @@
 
 /* 카드 글 */
 .dki-out .info {padding: 24px 28px;}
-.dki-out .cat {display: block; margin-bottom: 8px; color: #8a959a; font-size: 14px; font-weight: 500;}
-.dki-out .card strong {display: block; margin-bottom: 10px; color: #111; font-size: 20px; font-weight: 700; line-height: 28px;}
-.dki-out .card p {color: #333; font-size: 17px; line-height: 28px; text-align: left;}
+.dki-out .cat {display: block; margin-bottom: 8px; color: #8a959a; font-size: var(--fs-cap); font-weight: 500;}
+.dki-out .card strong {display: block; margin-bottom: 10px; color: #111; font-size: var(--fs-title); font-weight: 700; line-height: 28px;}
+.dki-out .card p {color: #333; font-size: var(--fs-body); line-height: 28px; text-align: left;}
 
 /* 좌우 버튼 · 페이지 점 */
 /* 좌우 화살표 */
@@ -159,7 +186,7 @@
                               display: flex; align-items: center; justify-content: center; width: 46px; height: 46px;
                               border: 1px solid #e3e8ea; border-radius: 8px; background: #fff; color: #55636a;
                               cursor: pointer; transition: .2s;
-                              font-family: "Material Symbols Outlined"; font-size: 22px; line-height: 1;}
+                              font-family: "Material Symbols Outlined"; font-size: var(--fs-h3); line-height: 1;}
 .dki-out-prev {left: -23px;}
 .dki-out-next {right: -23px;}
 .dki-out-prev:before {content: "arrow_back";}
@@ -204,17 +231,17 @@
 .dki-modal-box .side i {height: 9px; margin-bottom: 17px;}
 .dki-modal-box .body {padding: 22px 26px;}
 .dki-modal-info {padding: 26px 30px 30px;}
-.dki-modal-info .cat {display: block; margin-bottom: 9px; color: #8a959a; font-size: 13px; font-weight: 600;}
-.dki-modal-info strong {display: block; margin-bottom: 10px; color: #1d2a2e; font-size: 23px; font-weight: 700; line-height: 32px;}
-.dki-modal-info p {color: #6b777b; font-size: 16px; line-height: 26px; text-align: left;}
+.dki-modal-info .cat {display: block; margin-bottom: 9px; color: #8a959a; font-size: var(--fs-badge); font-weight: 600;}
+.dki-modal-info strong {display: block; margin-bottom: 10px; color: #1d2a2e; font-size: var(--fs-h3); font-weight: 700; line-height: 32px;}
+.dki-modal-info p {color: #6b777b; font-size: var(--fs-sub); line-height: 26px; text-align: left;}
 
 /* 기존 AI 개발과 비교 — 2단 카드 */
 .dki-cmp {display: flex; gap: 28px; max-width: 1270px; margin: 60px auto 0;}
 .dki-cmp .cmp-card {box-sizing: border-box; flex: 1; min-width: 0; padding: 40px; border: 1px solid #e3e8ea; border-radius: 16px; background: #fff;}
 .dki-cmp .cmp-card.kit {border-color: #ffdcc0; background: linear-gradient(160deg, #fff3e8, #fffaf6 62%, #fff);}
-.dki-cmp .cmp-t {display: block; margin-bottom: 20px; color: #55636a; font-size: 20px; font-weight: 700;}
+.dki-cmp .cmp-t {display: block; margin-bottom: 20px; color: #55636a; font-size: var(--fs-title); font-weight: 700;}
 .dki-cmp .kit .cmp-t {color: #e0640a;}
-.dki-cmp li {position: relative; padding: 18px 0 18px 32px; border-top: 1px solid #eef1f2; color: #7b878d; font-size: 17px; line-height: 28px;}
+.dki-cmp li {position: relative; padding: 18px 0 18px 32px; border-top: 1px solid #eef1f2; color: #7b878d; font-size: var(--fs-body); line-height: 28px;}
 .dki-cmp li:first-child {border-top: 0;}
 .dki-cmp li b {margin-right: 8px; color: #55636a; font-weight: 700;}
 .dki-cmp .kit li {border-top-color: #f7e3d3; color: #333;}
@@ -226,14 +253,16 @@
 /*==========  표준 단가 가이드 · 교육과 컨설팅 지원 (2026-09-21 추가)  ==========*/
 .dki-sec {margin-top: 120px;}
 .dki-sec h4.ws_hw {text-align: center;}
-.dki-sec .dki-lead {max-width: 860px; margin: 20px auto 0; color: #6b777b; font-size: 17px; line-height: 28px; text-align: center;}
+.dki-sec .dki-lead {max-width: 860px; margin: 20px auto 0; color: #6b777b; font-size: var(--fs-body); line-height: 28px; text-align: center;}
 
 /* 단가 가이드 — 회색 띠 */
-.dki-price {display: flex; align-items: stretch; gap: 24px; max-width: 1270px; margin: 60px auto 0;}
+.dki-price {display: flex; align-items: stretch; gap: 24px; max-width: 1270px; margin: 18px auto 0;}
 .dki-price > li {display: flex; flex-direction: column; box-sizing: border-box; flex: 1; min-width: 0;
-                 padding: 40px 36px; border: 1px solid #e3e8ea; border-radius: 10px; background: #fff;}
-.dki-price > li > strong {display: block; color: #111; font-size: 20px; font-weight: 700;}
-.dki-price .who {display: block; min-height: 48px; margin-top: 16px; color: #777; font-size: 16px; line-height: 26px;}
+                 padding: 40px 36px; border: 1px solid #e3e8ea; border-radius: 16px; background: #fff;}
+.dki-price > li > strong {display: block; color: #111; font-size: var(--fs-title); font-weight: 700;}
+.dki-price .rec {display: inline-block; margin-left: 10px; padding: 4px 10px; border-radius: 6px; vertical-align: 2px;
+                 background: #fff1e6; color: #e0640a; font-size: var(--fs-badge); font-weight: 600; line-height: 18px;}
+.dki-price .who {display: block; min-height: 48px; margin-top: 16px; color: #777; font-size: var(--fs-sub); line-height: 26px;}
 
 /* 금액 — 옅은 상자로 묶어 눈이 먼저 가도록 */
 /* 베이직 키트 — 대표 상품이라 테두리 강조 */
@@ -241,17 +270,50 @@
 .dki-price .cost {margin-top: 20px; padding: 20px; border: 0; border-radius: 10px; background: #f7f9fa;}
 .dki-price .cost p {margin-top: 20px; padding-top: 20px; border-top: 1px solid #e9eef0;}
 .dki-price .cost p:first-child {margin-top: 0; padding-top: 0; border-top: 0;}
-.dki-price .cost i {display: block; margin-bottom: 6px; color: #8a959a; font-size: 14px; line-height: 1.4; font-style: normal;}
-.dki-price .cost b {display: block; color: #e0640a; font-size: 24px; line-height: 1.25; font-weight: 700; letter-spacing: -0.5px;}
-.dki-price .cost p + p b {color: #2b3f45; font-size: 20px;}
-.dki-price .cost em {display: block; margin-top: 6px; color: #8a959a; font-size: 13px; line-height: 1.4; font-style: normal;}
+.dki-price .cost i {display: block; margin-bottom: 6px; color: #8a959a; font-size: var(--fs-cap); line-height: 1.4; font-style: normal;}
+.dki-price .cost b {display: block; color: #1d2a2e; font-size: var(--fs-price); line-height: 1.25; font-weight: 700; letter-spacing: -0.5px;}
+.dki-price .cost p + p b {color: #2b3f45; font-size: var(--fs-price-sub);}
+.dki-price .cost em {display: block; margin-top: 6px; color: #8a959a; font-size: var(--fs-badge); line-height: 1.4; font-style: normal;}
 
 /* 포함 항목 */
 .dki-price ul {flex: 1; margin-top: 22px;}
-.dki-price ul li {position: relative; margin-top: 12px; padding-left: 24px; color: #333; font-size: 16px; line-height: 24px;}
+.dki-price ul li {position: relative; margin-top: 12px; padding-left: 24px; color: #333; font-size: var(--fs-sub); line-height: 24px;}
 .dki-price ul li:first-child {margin-top: 0;}
-.dki-price ul li:before {content: "check"; position: absolute; left: 0; top: 2px; font-size: 18px; color: #f36d0c;}
-.dki-note {max-width: 1100px; margin: 32px auto 0; color: #666; font-size: 15px; line-height: 22px; text-align: center;}
+.dki-price ul li:before {content: "check_circle"; position: absolute; left: 0; top: 2px; font-size: 18px; color: #f36d0c;}
+/* 단가 — 개발키트(베이직·하이브리드)와 추가 운영 서비스를 구분 */
+.dki-pricegrid {display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 24px; row-gap: 18px;
+                max-width: 1270px; margin: 56px auto 0;}
+.dki-pgrp {margin: 0; color: #1d2a2e; font-size: var(--fs-h3); font-weight: 700; text-align: left;}
+.dki-pgrp span {margin-left: 10px; color: #8a959a; font-size: var(--fs-cap); font-weight: 500; letter-spacing: 0;}
+.dki-pricegrid > .dki-pgrp:first-child {grid-column: 1 / span 2;}
+.dki-pricegrid > .dki-pgrp-add {grid-column: 3; display: flex; align-items: center;}
+.dki-pgrp-add:before {content: "add"; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; margin-right: 10px; flex: none;
+                      border-radius: 50%; background: #1d2a2e; color: #fff; font-family: "Material Symbols Outlined"; font-size: 16px; font-weight: normal; line-height: 1;}
+.dki-pgrp:before {content: "check"; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; margin-right: 10px; flex: none;
+                      border-radius: 50%; background: #1d2a2e; color: #fff; font-family: "Material Symbols Outlined"; font-size: 16px; font-weight: normal; line-height: 1;}
+.dki-pgrp-add span {white-space: nowrap;}
+/* 개발키트 2칸 */
+.dki-pricegrid > ul.dki-price {grid-column: 1 / span 2; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; max-width: none; margin: 0;}
+/* 추가 운영 서비스 1칸 — 점선으로 '선택 사항'임을 표시 */
+.dki-pricegrid > .dki-addon {grid-column: 3; display: flex; flex-direction: column; gap: 0; max-width: none; margin: 0;
+                             padding: 40px 36px; border: 1px dashed #b9c4c9; border-radius: 16px; background: #fff;}
+.dki-addon .ad-head strong {display: block; color: #111; font-size: var(--fs-title); font-weight: 700;}
+/* 3칸에서 비용 상자 위치가 맞도록 설명 영역 높이를 같게 */
+.dki-pricegrid .who {min-height: 104px;}
+.dki-addon .who {margin-top: 16px;}
+@supports (grid-template-rows: subgrid) {
+	/* 세 카드가 같은 행(제목·설명·비용·목록)을 공유 → 설명이 몇 줄이든 비용 상자 위치가 같다 */
+	.dki-pricegrid {row-gap: 0;}
+	.dki-pricegrid > .dki-pgrp {margin-bottom: 18px;}
+	.dki-pricegrid > ul.dki-price {display: contents;}
+	.dki-pricegrid > ul.dki-price > li, .dki-pricegrid > .dki-addon {display: grid; grid-row: 2 / span 4; grid-template-rows: subgrid; row-gap: 0;}
+	.dki-pricegrid > ul.dki-price > li:nth-child(1) {grid-column: 1;}
+	.dki-pricegrid > ul.dki-price > li:nth-child(2) {grid-column: 2;}
+	.dki-addon .ad-head {display: contents;}
+	.dki-pricegrid .who {min-height: 0;}
+}
+
+.dki-note {max-width: 1100px; margin: 32px auto 0; color: #666; font-size: var(--fs-small); line-height: 22px; text-align: center;}
 .dki-note li {margin-top: 4px;}
 .dki-note li:first-child {margin-top: 0;}
 
@@ -259,9 +321,9 @@
 .dki-help {display: flex; gap: 24px; max-width: 1270px; margin: 60px auto 0;}
 .dki-help > li {flex: 1; min-width: 0; text-align: center;}
 .dki-help .ico {display: flex; align-items: center; justify-content: center; width: 76px; height: 76px; margin: 0 auto 20px; border-radius: 50%; background: #eef2f4;}
-.dki-help h6.ws_h6 {color: #111; font-size: 20px; font-weight: 700; line-height: 28px;}
-.dki-help .key {display: inline-block; margin-top: 8px; padding:6px 16px; border-radius: 13px; background: #fff1e6; color: #e0640a; font-size: 15px; font-weight: 500; line-height: 18px;}
-.dki-help p {margin-top: 20px; color: #333; font-size: 17px; line-height: 28px; text-align: center;}
+.dki-help h6.ws_h6 {color: #111; font-size: var(--fs-title); font-weight: 700; line-height: 28px;}
+.dki-help .key {display: inline-block; margin-top: 8px; padding:6px 16px; border-radius: 13px; background: #fff1e6; color: #e0640a; font-size: var(--fs-small); font-weight: 500; line-height: 18px;}
+.dki-help p {margin-top: 20px; color: #333; font-size: var(--fs-body); line-height: 28px; text-align: center;}
 
 /* 아이콘 — 구글 Material Symbols (폰트는 head.sub.php 에서 로드) */
 .dki-help .ico:before, .dki-why .more:after, .dki-faq summary:after,
@@ -279,38 +341,43 @@
 .dki-faq {max-width: 900px; margin: 60px auto 0;}
 .dki-faq details {border-bottom: 1px solid #e3e8ea;}
 .dki-faq details:first-child {border-top: 1px solid #e3e8ea;}
-.dki-faq summary {position: relative; padding: 24px 46px 24px 4px; color: #1d2a2e; font-size: 17px; font-weight: 700; line-height: 26px; cursor: pointer; list-style: none;}
+.dki-faq summary {position: relative; padding: 24px 46px 24px 4px; color: #1d2a2e; font-size: var(--fs-body); font-weight: 700; line-height: 26px; cursor: pointer; list-style: none;}
 .dki-faq summary::-webkit-details-marker {display: none;}
 .dki-faq summary:after {content: "expand_more"; position: absolute; right: 8px; top: 50%; margin-top: -13px; font-size: 26px; color: #9aa5aa;}
 .dki-faq details[open] summary {color: #e0640a;}
 .dki-faq details[open] summary:after {content: "expand_less"; color: #e0640a;}
-.dki-faq p {padding: 0 44px 24px 4px; color: #333; font-size: 17px; line-height: 28px;}
+.dki-faq p {padding: 0 44px 24px 4px; color: #333; font-size: var(--fs-body); line-height: 28px;}
 
 /* 롤링 배너 — 슬라이드 원본이 1270×550 이라 폭을 맞춰야 아래가 잘리지 않음 */
-.ws_section06 .container #slides {max-width: 1270px; margin: 0 auto;}
+.dki-scanner .container #slides {max-width: 1270px; margin: 0 auto;}
 
 /* 도입 문의 버튼 — 키트 구성에서 지원 섹션 끝으로 이동 */
 .dki-sec a.gotopackage {display: block; width: 256px; height: 58px; margin: 60px auto 0; border: 1px solid #f36d0c; border-radius: 6px;
-                        color: #f36d0c; font-size: 17px; font-weight: 600; line-height: 55px; text-align: center; transition: .3s;}
+                        color: #f36d0c; font-size: var(--fs-body); font-weight: 600; line-height: 55px; text-align: center; transition: .3s;}
 .dki-sec a.gotopackage:hover {background-color: #fff9f4;}
 
+@media all and (min-width: 981px) and (max-width: 1200px) {
+	.dki-pricegrid > .dki-price > li, .dki-pricegrid > .dki-addon {padding: 32px 22px;}
+	.dki-pricegrid .cost {padding: 16px 16px;}
+	.dki-pricegrid .who {font-size: var(--fs-small); line-height: 24px;}
+	.dki-pgrp-add span {display: none;}
+}
+
 @media all and (max-width: 980px) {
-	.ws_section08 > ul.dki-kit {flex-wrap: wrap; gap: 18px;}
-	.ws_section08 > ul.dki-kit > li {flex: 0 0 100%;}
-	.ws_section08 > ul.dki-kit > li h6.ws_h6 {font-size: 19px;}
-	.kit-body {padding: 22px 20px 24px;}
+	.dki-kitsec > ul.dki-kit {flex-wrap: wrap; gap: 18px;}
+	.dki-kitsec > ul.dki-kit > li {flex: 0 0 100%;}
+	.dki-kit-body {padding: 22px 20px 24px;}
 	/* 화면이 좁아질수록 그림 자리가 세로로 너무 길어지지 않도록 */
-	.ws_section12 .dki {aspect-ratio: 16 / 9;}
+	.dki-intro .dki {aspect-ratio: 16 / 9;}
 	.dki-kit .items {gap: 10px; margin-top: 14px;}
 	.dki-kit .items > li {padding: 17px 18px;}
-	.dki-kit .items b {font-size: 15px;}
-	.dki-kit .items span {font-size: 13px; line-height: 21px;}
-	.ws_section08 .dki-hl {gap: 12px; margin-bottom: 28px; padding: 16px 18px; font-size: 15px; line-height: 24px;}
-	.ws_section08 .dki-hl strong {font-size: 24px;}
+	.dki-kit .items span {line-height: 24px;}
+	.dki-kitsec .dki-hl {gap: 12px; margin-bottom: 28px; padding: 16px 18px; font-size: 15px; line-height: 24px;}
+	.dki-kitsec .dki-hl strong {font-size: 24px;}
 	.dki-cmp {flex-wrap: wrap; gap: 16px; margin-top: 28px;}
 	.dki-cmp .cmp-card {flex: 0 0 100%; padding: 32px;}
-	.dki-cmp .cmp-t {margin-bottom: 14px; font-size: 21px;}
-	.dki-cmp li {padding: 15px 0 15px 29px; font-size: 15px; line-height: 24px;}
+	.dki-cmp .cmp-t {margin-bottom: 14px;}
+	.dki-cmp li {padding: 15px 0 15px 29px; line-height: 24px;}
 	.dki-cmp li:before {top: 18px;}
 	.dki-out {margin-top: 26px;}
 	/* 점이 8px 라 손가락으로 누르기 어려움 — 보이는 크기는 그대로 두고 눌리는 범위만 넓힘 */
@@ -322,71 +389,75 @@
 	.dki-modal-box .side b {height: 10px; margin-bottom: 16px;}
 	.dki-modal-box .side i {height: 6px; margin-bottom: 11px;}
 	.dki-modal-info {padding: 20px 20px 24px;}
-	.dki-modal-info strong {font-size: 20px; line-height: 29px;}
+	.dki-modal-info strong { line-height: 29px;}
 	.dki-out-prev, .dki-out-next {display: none;}
-	.dki-out .card strong {font-size: 18px; line-height: 26px;}
+	.dki-out .card strong { line-height: 26px;}
 	.dki-out .info {padding: 20px 20px 24px;}
 	.dki-sec {margin-top: 60px;}
-	.dki-sec .dki-lead {font-size: 15px; line-height: 24px;}
-	.dki-price {flex-wrap: wrap; gap: 14px; margin-top: 28px;}
+	.dki-sec .dki-lead { line-height: 24px;}
+	.dki-price {flex-wrap: wrap; gap: 14px; margin-top: 14px;}
+	/* 라벨→카드 순서가 되도록 order 로 재배치 (마크업은 PC 그리드 기준: 라벨, 라벨, 카드들) */
+	.dki-pricegrid {display: flex; flex-direction: column; margin-top: 34px;}
+	.dki-pricegrid > .dki-pgrp:first-child {order: 1;}
+	.dki-pricegrid > ul.dki-price {order: 2;}
+	.dki-pricegrid > .dki-pgrp-add {order: 3;}
+	.dki-pricegrid > .dki-addon {order: 4;}
+	.dki-pgrp span {display: block; margin: 4px 0 0;}
+	.dki-pricegrid > ul.dki-price {display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px;}
+	.dki-pricegrid > ul.dki-price > li, .dki-pricegrid > .dki-addon {display: flex; grid-row: auto; grid-column: auto; grid-template-rows: none;}
+	.dki-addon .ad-head {display: block;}
+	.dki-pricegrid > .dki-pgrp {margin-bottom: 0;}
+	.dki-pricegrid > .dki-pgrp-add {display: block; margin-top: 30px; padding-left: 30px; position: relative;}
+	.dki-pgrp-add:before {position: absolute; left: 0; top: 5px; margin-right: 0;}
+	.dki-pgrp-add span {white-space: normal; display: block;}
+	.dki-pricegrid > .dki-addon {margin-top: 14px; padding: 26px 22px 24px;}
+	.dki-pricegrid .who {min-height: 0;}
 	.dki-price > li {flex: 0 0 100%; padding: 26px 22px 24px;}
 	.dki-price .who {min-height: 0;}
 	.dki-price .cost {padding: 16px 18px 14px;}
-	.dki-price .cost b {font-size: 23px;}
 	.dki-price ul {margin-top: 18px;}
-	.dki-price ul li {font-size: 14px; line-height: 22px;}
+	.dki-price ul li { line-height: 22px;}
 	.dki-help {flex-wrap: wrap; gap: 34px; margin-top: 28px;}
-	.dki-stat {flex-wrap: wrap; gap: 22px 28px; margin-top: 28px;}
-	.dki-stat > li {flex: 1 1 130px;}
-	.dki-stat > li + li:before {display: none;}
-	.dki-stat > li + li:before {left: -19px; bottom: 12px;}
-	.dki-stat .lb {margin-bottom: 4px; font-size: 13px; line-height: 19px;}
-	.dki-stat strong {font-size: 32px;}
-	.dki-stat em {font-size: 15px;}
-	.dki-why {grid-template-columns: 1fr; gap: 14px; margin-top: 28px;}
-	.dki-why > li {padding: 24px 22px;}
-	.dki-why strong {font-size: 18px;}
-	.dki-why p {margin-top: 10px; font-size: 15px; line-height: 25px;}
 	.dki-patrow {margin-top: 14px; padding: 22px 20px 24px;}
-	.dki-patrow li {padding: 12px 0; font-size: 15px; line-height: 25px;}
+	.dki-patrow li {padding: 12px 0; line-height: 25px;}
 	.dki-patrow li b {position: static; display: block; margin-bottom: 4px;}
 	.dki-help > li {flex: 0 0 100%;}
-	.dki-note {margin-top: 20px; font-size: 13px;}
+	.dki-note {margin-top: 20px;}
 	.dki-note li {margin-top: 3px;}
 	.dki-sec-faq {padding-bottom: 60px;}
 	.dki-faq {margin-top: 24px;}
-	.dki-faq summary {padding: 18px 40px 18px 2px; font-size: 16px; line-height: 25px;}
-	.dki-faq p {padding: 0 40px 20px 2px; font-size: 14px; line-height: 25px;}
+	.dki-faq summary {padding: 18px 40px 18px 2px; line-height: 25px;}
+	.dki-faq p {padding: 0 40px 20px 2px; line-height: 25px;}
 	.dki-sec a.gotopackage {margin-top: 34px;}
 }
 
 /*==========  모바일 마무리  ==========*/
 @media all and (max-width: 767px) {
 	/* 롤링 배너 — 좌우 버튼이 슬라이드 위를 덮어 내용이 가려지던 문제. 이미지 아래로 내림 */
-	.ws_section06 .container {padding-bottom: 56px;}
-	a.slidesjs-previous.slidesjs-navigation, a.slidesjs-next.slidesjs-navigation {width: 42px; height: 42px; background-size: 42px 42px; top: auto; bottom: 7px;}
-	a.slidesjs-previous.slidesjs-navigation {right: 50%; margin-right: 5px;}
-	a.slidesjs-next.slidesjs-navigation {right: 50%; margin-right: -47px;}
+	.dki-scanner .container {padding-bottom: 56px;}
+	.dki-scanner a.slidesjs-previous.slidesjs-navigation, .dki-scanner a.slidesjs-next.slidesjs-navigation {width: 42px; height: 42px; background-size: 42px 42px; top: auto; bottom: 7px;}
+	.dki-scanner a.slidesjs-previous.slidesjs-navigation {right: 50%; margin-right: 5px;}
+	.dki-scanner a.slidesjs-next.slidesjs-navigation {right: 50%; margin-right: -47px;}
 }
 @media all and (max-width: 640px) {
 	/* 그림 자리를 4:3 → 3:2 로 낮춰 스크롤 길이를 줄임 */
-	.ws_section12 .dki {aspect-ratio: 3 / 2;}
+	.dki-intro .dki {aspect-ratio: 3 / 2;}
 	.dki-kit .dki {height: 168px;}
 	.dki-kit .dki-hyb .row {width: 290px;}
 	.dki-out .info {padding: 18px 18px 22px;}
 }
 
 /* 왜 팩앤롤인가 — 숫자 + 근거 카드 */
-.dki-eyebrow {margin-bottom: 12px; color: #e0640a; font-size: 15px; font-weight: 700; letter-spacing: -0.2px; text-align: center;}
+.dki-eyebrow {margin-bottom: 12px; color: #e0640a; font-size: var(--fs-small); font-weight: 700; letter-spacing: -0.2px; text-align: center;}
 .dki-sec-why h4.ws_hw {line-height: 1.35;}
 
 .dki-stat {display: flex; align-items: flex-end; justify-content: center; gap: 100px; max-width: 1270px; margin: 60px auto 0;}
 .dki-stat > li {position: relative; text-align: center;}
 .dki-stat > li + li:before {content: ""; position: absolute; left: -50px; bottom: 30px; width: 6px; height: 6px; border-radius: 50%; background: #cfd8dd;}
-.dki-stat .lb {display: block; margin-bottom: 8px; color: #777; font-size: 16px; line-height: 24px;}
-.dki-stat strong {display: block; color: #111; font-size: 72px; font-weight: 600; line-height: 1.1; letter-spacing: -1.5px;}
+.dki-stat .lb {display: block; margin-bottom: 8px; color: #777; font-size: var(--fs-sub); line-height: 24px;}
+.dki-stat strong {display: block; color: #111; font-size: var(--fs-stat); font-weight: 600; line-height: 1.1; letter-spacing: -1.5px;}
 .dki-stat .num {font-style: normal;}
-.dki-stat em {font-size: 36px; font-weight: 600; font-style: normal; margin-left: 12px;}
+.dki-stat em {font-size: var(--fs-stat-unit); font-weight: 600; font-style: normal; margin-left: 12px;}
 
 .dki-why {display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px;
           max-width: 1100px; margin: 52px auto 0;}
@@ -396,13 +467,13 @@
 .dki-why > li.wide {transition: box-shadow .25s, border-color .25s, transform .25s;}
 .dki-why > li.wide:hover {border-color: #d8dfe3; box-shadow: 0 8px 20px rgba(17,24,39,.05); transform: translateY(-2px);}
 .dki-why > li.mark {border-color: #ffdcc0; background: linear-gradient(160deg, #fff3e8, #fffaf6 62%, #fff);}
-.dki-why strong {color: #111; font-size: 20px; font-weight: 700;}
-.dki-why p {margin-top: 30px; color: #333; font-size: 17px; line-height: 28px;}
+.dki-why strong {color: #111; font-size: var(--fs-title); font-weight: 700;}
+.dki-why p {margin-top: 30px; color: #333; font-size: var(--fs-body); line-height: 28px;}
 .dki-why .score {align-self: flex-start; margin-top: 30px; padding: 8px 16px; border-radius: 19px;
                  background: #fff; border: 1px solid #ffdcc0; color: #55636a; font-size: 16px; line-height: 20px;}
 .dki-why .score b {color: #e0640a; font-size: 19px; font-weight: 800;}
 .dki-why .more {position: relative; align-self: flex-start; margin-top: 30px; padding-right: 20px;
-                color: #e0640a; font-size: 15px; font-weight: 700; line-height: 22px;}
+                color: #e0640a; font-size: var(--fs-small); font-weight: 700; line-height: 22px;}
 .dki-why .more:after {content: "arrow_forward"; position: absolute; right: 0; top: 3px; font-size: 16px; color: #e0640a; transition: transform .25s;}
 .dki-why > li.wide:hover .more:after {transform: translateX(3px);}
 
@@ -421,6 +492,22 @@
 @keyframes dki-marquee {from {transform: translateX(0);} to {transform: translateX(-50%);}}
 @media (prefers-reduced-motion: reduce) {.dki-why .logo-track {animation: none;}}
 
+/* 실행 파트너 섹션 — 모바일 (PC 규칙보다 뒤에 있어야 덮어쓴다) */
+@media all and (max-width: 980px) {
+	/* 3개를 한 줄(1×3)로 — 라벨이 두 줄이어도 숫자 위치가 같도록 라벨 높이를 고정 */
+	.dki-stat {flex-wrap: nowrap; justify-content: space-between; align-items: flex-start; gap: 6px; margin-top: 28px;}
+	.dki-stat > li {flex: 1 1 0; min-width: 0;}
+	.dki-stat > li + li:before {display: none;}
+	.dki-stat .lb {display: flex; align-items: flex-end; justify-content: center; min-height: 36px; margin-bottom: 6px;
+ font-size: var(--fs-badge); line-height: 17px; word-break: keep-all;}
+	.dki-stat strong { letter-spacing: -1px;}
+	.dki-stat em {margin-left: 3px;}
+	.dki-why {grid-template-columns: 1fr; gap: 14px; margin-top: 28px;}
+	.dki-why > li {padding: 26px 22px;}
+	.dki-why p {margin-top: 12px; line-height: 25px;}
+	.dki-why .score, .dki-why .more, .dki-why .logos {margin-top: 20px;}
+}
+
 /* 보유 특허 3칸 */
 
 /* ===== 섹션 배경 교차 (#fff / #f1f1f1) ===== */
@@ -429,8 +516,8 @@
 .dki-band.dki-band-s {background: #f7f9fa;}
 .dki-band.dki-band-g {background: #f1f1f1;}
 /* #sub__wrap(1270px) 안에 든 섹션은 래퍼가 색을 깔고, 안쪽 여백은 래퍼가 맡는다 */
-.dki-band > #sub__wrap > .ws_section12,
-.dki-band > #sub__wrap > .ws_section08 {margin-top: 0;}
+.dki-band > #sub__wrap > .dki-intro,
+.dki-band > #sub__wrap > .dki-kitsec {margin-top: 0;}
 
 @media all and (max-width: 980px) {
 	.dki-band {padding: 50px 15px;}
@@ -451,19 +538,19 @@
 
 /* ===== 자동개발 플랫폼 가이드 — B안 (좌: 세로 단계 목록, 우: 큰 화면) ===== */
 .dki-g2 h4.ws_hw {padding: 0; background-color: transparent; margin-bottom: 20px;}
-.dki-g2 .dki-lead {max-width: 860px; margin: 0 auto; color: #6b777b; font-size: 17px; line-height: 28px; text-align: center;}
+.dki-g2 .dki-lead {max-width: 860px; margin: 0 auto; color: #6b777b; font-size: var(--fs-body); line-height: 28px; text-align: center;}
 
 .dki-g2 .g2-flow {display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 40px;
                   max-width: 1270px; margin: 60px auto 0; align-items: start;}
-.dki-g2 .g2-cap {color: #111; font-size: 20px; font-weight: 700; text-align: left;}
+.dki-g2 .g2-cap {color: #111; font-size: var(--fs-title); font-weight: 700; text-align: left;}
 .dki-g2 .g2-cap2 {max-width: 1270px; margin: 72px auto 0;}
 
 /* 좌측 세로 단계 목록 — Swiper pagination */
 .dki-g2 .g2-steps {margin-top: 24px; border-left: 2px solid #e3e8ea;}
 .dki-g2 .g2-steps .swiper-pagination-bullet {position: relative; display: block; width: auto; height: auto; margin: 0;
-    padding: 16px 0 16px 24px; border-radius: 0; background: none; color: #7b878d;
-    font-size: 17px; font-weight: 600; line-height: 22px; opacity: 1; cursor: pointer; transition: .2s; text-align: left;}
-.dki-g2 .g2-steps .swiper-pagination-bullet:before {content: attr(data-no); display: inline-block; width: 28px;
+    padding: 16px 12px 16px 52px; text-indent: -28px; word-break: keep-all; border-radius: 0; background: none; color: #7b878d;
+    font-size: var(--fs-body); font-weight: 600; line-height: 22px; opacity: 1; cursor: pointer; transition: .2s; text-align: left;}
+.dki-g2 .g2-steps .swiper-pagination-bullet:before {content: attr(data-no); display: inline-block; width: 28px; text-indent: 0;
     color: #b9c4c9; font-weight: 800;}
 .dki-g2 .g2-steps .swiper-pagination-bullet:after {content: ""; position: absolute; left: -2px; top: 0; bottom: 0;
     width: 2px; background: transparent; transition: .2s;}
@@ -482,10 +569,10 @@
 .dki-g2 .g2-shot img {display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top;}
 .dki-g2 .g2-desc {padding: 28px 32px;}
 .dki-g2 .g2-desc .no {display: inline-block; padding: 5px 12px; border-radius: 6px; background: #fff1e6;
-                      color: #e0640a; font-size: 13px; font-weight: 700; line-height: 18px;}
-.dki-g2 .g2-desc strong {display: block; margin-top: 14px; color: #1d2a2e; font-size: 26px; font-weight: 800; letter-spacing: -0.7px;}
-.dki-g2 .g2-desc p {color: #333; font-size: 17px; line-height: 30px;}
-.dki-g2 .g2-desc p.tip {margin-top: 10px; color: #8a959a; font-size: 15px; line-height: 26px;}
+                      color: #e0640a; font-size: var(--fs-badge); font-weight: 700; line-height: 18px;}
+.dki-g2 .g2-desc strong {display: block; word-break: keep-all; color: #111; font-size: var(--fs-title); font-weight: 700; letter-spacing: -0.5px;}
+.dki-g2 .g2-desc p {margin-top: 10px; word-break: keep-all; color: #333; font-size: var(--fs-body); line-height: 30px;}
+.dki-g2 .g2-desc p.tip {margin-top: 10px; color: #8a959a; font-size: var(--fs-small); line-height: 26px;}
 .dki-g2 .g2-desc p.tip b {color: #e0640a; font-weight: 700;}
 
 /* 만든 뒤 — 카드 대신 번호 매긴 3단 나열 */
@@ -496,22 +583,22 @@
 .dki-g2 .g2-ops > li:last-child {padding-right: 0;}
 .dki-g2 .g2-ops > li:before {counter-increment: g2; content: "0" counter(g2);
                              display: block; margin-bottom: 14px; color: #f36d0c; font-size: 14px; font-weight: 800;}
-.dki-g2 .g2-ops strong {display: block; color: #111; font-size: 20px; font-weight: 700;}
-.dki-g2 .g2-ops .key {display: block; margin-top: 8px; color: #8a959a; font-size: 14px; line-height: 20px;}
-.dki-g2 .g2-ops p {margin-top: 30px; color: #333; font-size: 17px; line-height: 28px;}
+.dki-g2 .g2-ops strong {display: block; color: #111; font-size: var(--fs-title); font-weight: 700;}
+.dki-g2 .g2-ops .key {display: block; margin-top: 8px; color: #8a959a; font-size: var(--fs-cap); line-height: 20px;}
+.dki-g2 .g2-ops p {margin-top: 30px; color: #333; font-size: var(--fs-body); line-height: 28px;}
 
 @media all and (max-width: 980px) {
 	.dki-g2 .g2-flow {grid-template-columns: 1fr; gap: 22px; margin-top: 28px;}
 	.dki-g2 .g2-steps {display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; border-left: 0;}
-	.dki-g2 .g2-steps .swiper-pagination-bullet {padding: 8px 13px; border: 1px solid #e3e8ea; border-radius: 30px;
-	                                             background: #fff; font-size: 13px;}
+	.dki-g2 .g2-steps .swiper-pagination-bullet {padding: 8px 13px; text-indent: 0; border: 1px solid #e3e8ea; border-radius: 30px;
+	                                             background: #fff; font-size: var(--fs-small);}
 	.dki-g2 .g2-steps .swiper-pagination-bullet:before {width: auto; margin-right: 5px;}
 	.dki-g2 .g2-steps .swiper-pagination-bullet:after {display: none;}
 	.dki-g2 .g2-steps .swiper-pagination-bullet-active {border-color: #f36d0c; background: #f36d0c; color: #fff;}
 	.dki-g2 .g2-steps .swiper-pagination-bullet-active:before {color: rgba(255,255,255,.7);}
 	.dki-g2 .g2-desc {padding: 22px 20px 24px;}
-	.dki-g2 .g2-desc strong {font-size: 21px;}
-	.dki-g2 .g2-desc p {margin-top: 10px; font-size: 15px; line-height: 26px;}
+	.dki-g2 .g2-desc strong { line-height: 1.4;}
+	.dki-g2 .g2-desc p {margin-top: 8px; line-height: 26px;}
 	.dki-g2 .g2-cap2 {margin-top: 44px;}
 	.dki-g2 .g2-ops {grid-template-columns: 1fr; margin-top: 18px;}
 	.dki-g2 .g2-ops > li {padding: 24px 0 0; border-left: 0; border-top: 1px solid #e3e8ea;}
