@@ -604,3 +604,84 @@
 	.dki-g2 .g2-ops > li {padding: 24px 0 0; border-left: 0; border-top: 1px solid #e3e8ea;}
 	.dki-g2 .g2-ops > li:first-child {border-top: 0;}
 }
+
+
+/* ===== [시안 2026-10-07] 요구사항 입력 예시 (타이핑) ===== */
+.dki-demo {max-width: 960px; margin: 52px auto 0;}
+
+/* 사례 탭 — 박스 없이 이름 + 진행 막대. 막대가 사례 시간 동안 차오른다 */
+.dm-tabs {display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 22px;}
+.dm-tabs button {position: relative; display: block; width: 100%; padding: 0 0 14px; border: 0; background: none;
+                 cursor: pointer; text-align: left; font-family: inherit;}
+.dm-tabs button:before {content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; border-radius: 2px; background: #e3e8ea;}
+.dm-tabs strong {display: block; color: #9aa5aa; font-size: var(--fs-sub); font-weight: 600; letter-spacing: -0.3px; transition: color .2s;}
+.dm-tabs strong:before {content: attr(data-no); margin-right: 8px; color: #c3ccd0; font-weight: 700; transition: color .2s;}
+.dm-tabs i {position: absolute; left: 0; right: 0; bottom: 0; height: 2px; border-radius: 2px; background: #f36d0c;
+            transform: scaleX(0); transform-origin: left center;}
+.dm-tabs .done i {transform: scaleX(1); background: #f8c9a6;}
+.dm-tabs .on strong {color: #1d2a2e; font-weight: 700;}
+.dm-tabs .on strong:before {color: #f36d0c;}
+.dm-tabs button:hover strong {color: #55636a;}
+.dm-tabs .on button:hover strong {color: #1d2a2e;}
+.dm-tabs button:focus-visible {outline: 2px solid #f36d0c; outline-offset: 2px;}
+
+/* 원문 목록 — 화면 읽기 프로그램용. 스크립트가 꺼져 있으면 그대로 보여 준다 */
+.dm-src {margin: 0; padding: 0; list-style: none;}
+.dm-src li {margin-top: 12px; padding: 20px 24px; border: 1px solid #e3e8ea; border-radius: 12px; background: #fff;
+            color: #333; font-size: var(--fs-body); line-height: 28px; white-space: pre-line;}
+.dki-demo .dm-win {display: none;}
+.dki-demo:not(.is-on) .dm-tabs {display: none;}
+.dki-demo.is-on .dm-src {position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;}
+.dki-demo.is-on .dm-win {display: block;}
+
+/* 입력 창 */
+.dm-win {overflow: hidden; border: 1px solid #dfe5e8; border-radius: 16px; background: #fff; box-shadow: 0 18px 40px rgba(29,42,46,.08);}
+.dm-bar {display: flex; align-items: center; gap: 6px; padding: 13px 18px; border-bottom: 1px solid #eef1f2; background: #fafbfc;}
+.dm-bar i {width: 10px; height: 10px; border-radius: 50%; background: #e3e8ea;}
+.dm-bar strong {margin-left: 10px; color: #8a969b; font-size: var(--fs-cap); font-weight: 500;}
+.dm-bar em {margin-left: auto; color: #8a969b; font-size: var(--fs-badge); font-style: normal;}
+.dm-body {padding: 28px 32px 26px;}
+.dm-label {display: block; margin-bottom: 16px; color: #1d2a2e; font-size: var(--fs-sub); font-weight: 700;}
+
+/* 세 문장을 같은 칸에 겹쳐 두고(투명) 그 위에 타이핑 — 칸 높이가 가장 긴 문장에 맞춰 고정된다 */
+.dm-input {display: grid; padding: 20px 22px; border: 1px solid #e3e8ea; border-radius: 12px; background: #fbfcfc;
+           transition: border-color .3s;}
+.dm-input > p {grid-area: 1 / 1; margin: 0; color: #1d2a2e; font-size: var(--fs-body); line-height: 30px;
+               white-space: pre-line; word-break: keep-all;}
+.dm-ghost {visibility: hidden;}
+.dm-text {transition: opacity .3s, transform .3s;}
+.is-out .dm-text {opacity: 0; transform: translateY(-6px);}
+.is-typing .dm-input {border-color: #f6a46a;}
+.dm-caret {display: inline-block; width: 2px; height: 1.1em; margin-left: 2px; vertical-align: -0.15em; background: #f36d0c;
+           animation: dm-blink 1s steps(1) infinite;}
+.is-typing .dm-caret {animation: none;}
+@keyframes dm-blink {50% {opacity: 0;}}
+
+.dm-foot {display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 18px;}
+.dm-hint {color: #9aa5aa; font-size: var(--fs-cap);}
+.dm-send {flex: none; padding: 10px 20px; border-radius: 6px; background: #e3e8ea; color: #fff;
+          font-size: var(--fs-cap); font-weight: 700; transition: background-color .3s, box-shadow .3s;}
+.is-ready .dm-send {background: #f36d0c; box-shadow: 0 6px 14px rgba(243,109,12,.25);}
+
+@media (prefers-reduced-motion: reduce) {
+	.dm-caret {animation: none;}
+	.dm-text, .dm-input, .dm-send {transition: none;}
+}
+
+@media all and (max-width: 980px) {
+	.dki-demo {margin-top: 30px;}
+	.dm-tabs {gap: 8px; margin-bottom: 16px;}
+	.dm-tabs button {padding-bottom: 10px; text-align: center;}
+	.dm-tabs button:before, .dm-tabs i {height: 3px;}
+	.dm-tabs strong {letter-spacing: -0.5px; word-break: keep-all;}
+	.dm-tabs strong:before {display: none;}
+	.dm-win {border-radius: 12px;}
+	.dm-bar {padding: 10px 14px;}
+	.dm-bar em {display: none;}
+	.dm-body {padding: 18px 16px;}
+	.dm-input {padding: 14px 14px;}
+	.dm-input > p {line-height: 25px;}
+	.dm-foot {margin-top: 14px;}
+	.dm-hint {display: none;}
+	.dm-send {width: 100%; text-align: center;}
+}

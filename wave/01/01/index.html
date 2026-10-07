@@ -299,6 +299,122 @@ var g5_shop_url = "/shop";
 </div>
 
 
+<!-- [시안 2026-10-07] 요구사항 입력 예시 — 사례 3개를 차례로 타이핑해 보여 준다 (한 바퀴 12초).
+     문장을 바꾸려면 아래 .dm-src 의 <li> 만 고치면 된다. 줄바꿈은 그대로 화면 줄바꿈이 된다. -->
+<div class="dki-sec dki-sec-demo dki-band dki-band-s">
+	<h4 class="ws_hw">말하듯 입력하면 시스템이 됩니다</h4>
+	<p class="dki-lead">필요한 기능을 입력하면 AI가 업무 시스템으로 만듭니다.</p>
+
+	<div class="dki-demo">
+		<ul class="dm-tabs" role="tablist">
+			<li><button type="button" role="tab" aria-selected="true"><strong data-no="01">자재관리 시스템</strong><i></i></button></li>
+			<li><button type="button" role="tab" aria-selected="false"><strong data-no="02">창고관리 시스템</strong><i></i></button></li>
+			<li><button type="button" role="tab" aria-selected="false"><strong data-no="03">견적관리 시스템</strong><i></i></button></li>
+		</ul>
+
+		<!-- 화면 읽기 프로그램·스크립트 꺼짐용 원문 (화면에는 숨김).
+		     data-pre = 처음부터 보여 줄 문장 수 (없으면 1). 그 다음 문장부터 타이핑한다. -->
+		<ol class="dm-src">
+			<li>전자부품 제조업체로 원자재, 부자재, 포장재를 관리할 수 있는 자재관리 시스템을 만들어줘.
+바코드를 기반으로 자재의 입출고를 관리하고, 재고 현황과 발주관리 기능도 추가해줘.</li>
+			<li data-pre="2">물류회사에서 사용하는 창고관리 시스템을 만들어줘.
+창고에 들어오는 화물과 나가는 화물을 등록하고 입출고 상태를 관리할 수 있게 해줘. 화물의 보관 위치와 재고 수량을 확인할 수 있고, 거래처나 화물번호로 원하는 화물을 쉽게 검색할 수 있도록 해줘. 입출고 이력도 확인할 수 있게 해줘.</li>
+			<li data-pre="2">우리 회사에서 사용하는 견적관리 시스템을 만들어줘.
+거래처와 견적 정보를 등록하고 견적서를 작성할 수 있게 해줘. 견적 금액, 작성일, 담당자, 견적 상태를 관리하고, 거래처별로 과거 견적을 조회할 수 있도록 해줘. 견적서를 PDF로 출력할 수 있는 기능도 추가해줘.</li>
+		</ol>
+
+		<div class="dm-win" aria-hidden="true">
+			<div class="dm-bar"><i></i><i></i><i></i><strong>자동개발 플랫폼</strong></div>
+			<div class="dm-body">
+				<span class="dm-label">만들고 싶은 업무 시스템을 설명해 주세요.</span>
+				<div class="dm-input">
+					<p class="dm-ghost"></p><p class="dm-ghost"></p><p class="dm-ghost"></p>
+					<p class="dm-text"><span></span><b class="dm-caret"></b></p>
+				</div>
+				<div class="dm-foot"><span class="dm-hint">AI가 요구사항 정의서부터 차례로 만듭니다.</span><span class="dm-send">시스템 만들기</span></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+(function () {
+	var root = document.querySelector('.dki-demo');
+	if (!root) return;
+	var items = root.querySelectorAll('.dm-src li');
+	var src = [].map.call(items, function (li) { return li.textContent.replace(/^\s+|\s+$/g, '').replace(/\n\s*/g, '\n'); });
+	var tabs = root.querySelectorAll('.dm-tabs button');
+	var win = root.querySelector('.dm-win');
+	var out = root.querySelector('.dm-text span');
+	var ghosts = root.querySelectorAll('.dm-ghost');
+	// 입력창 높이는 가장 긴 문장 기준으로 고정 — 사례가 바뀌어도 아래 내용이 들썩이지 않는다
+	[].forEach.call(ghosts, function (g, k) { g.textContent = src[k] || ''; });
+	// 미리 보여 줄 부분의 길이 — data-pre 번째 문장이 끝나는 곳(마침표 + 공백·줄바꿈 다음)까지
+	var heads = [].map.call(items, function (li, k) {
+		var want = parseInt(li.getAttribute('data-pre'), 10) || 1, re = /[.!?](\s+|$)/g, m, end = 0;
+		while (want-- > 0 && (m = re.exec(src[k]))) end = m.index + m[0].length;
+		return end;
+	});
+
+	// 모든 사례를 같은 속도로 타이핑 — 글자당 69ms (초당 약 14.5자). 사례 시간 = 타이핑 + 다 쓴 문장을 보여 주는 1.5초
+	// 지금 문장 기준 한 바퀴: 자재관리 4.7초 + 창고관리 7.3초 + 견적관리 7.4초 ≈ 19.3초
+	var CHAR = 69, HOLD = 1500, FADE = 300;
+	function typeTime(k) { return (src[k].length - heads[k]) * CHAR; }
+	function stepTime(k) { return typeTime(k) + HOLD; }
+	var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	var cur = -1, elapsed = 0, last = 0, raf = 0, shown = -1;
+	var visible = !('IntersectionObserver' in window), hover = false;
+
+	function select(k) {
+		cur = k; elapsed = 0; shown = -1;
+		[].forEach.call(tabs, function (b, j) {
+			b.setAttribute('aria-selected', j === k ? 'true' : 'false');
+			b.parentNode.className = j === k ? 'on' : (j < k ? 'done' : '');
+		});
+		render();
+	}
+	function render() {
+		// 앞 문장(data-pre)은 처음부터 보여 주고 나머지만 타이핑
+		var text = src[cur], head = heads[cur];
+		var n = still ? text.length : Math.min(text.length, head + Math.ceil(elapsed / CHAR));
+		if (n !== shown) { out.textContent = text.slice(0, n); shown = n; }
+		var typed = n >= text.length;
+		win.classList.toggle('is-typing', !typed);
+		win.classList.toggle('is-ready', typed);
+		win.classList.toggle('is-out', !still && elapsed > stepTime(cur) - FADE);
+		tabs[cur].querySelector('i').style.transform = 'scaleX(' + (still ? 1 : Math.min(1, elapsed / stepTime(cur))) + ')';
+	}
+	function frame(ts) {
+		raf = 0;
+		if (!visible || hover || still) return;
+		elapsed += last ? Math.min(ts - last, 100) : 0;   // 탭을 떠나 있던 시간은 건너뛴다
+		last = ts;
+		if (elapsed >= stepTime(cur)) {
+			tabs[cur].querySelector('i').style.transform = '';
+			select((cur + 1) % src.length);
+		} else render();
+		raf = requestAnimationFrame(frame);
+	}
+	function play() { if (!raf && visible && !hover && !still) { last = 0; raf = requestAnimationFrame(frame); } }
+
+	[].forEach.call(tabs, function (b, k) {
+		b.addEventListener('click', function () {
+			[].forEach.call(tabs, function (t) { t.querySelector('i').style.transform = ''; });
+			select(k); play();
+		});
+	});
+	// 읽는 중에는 멈춤
+	win.addEventListener('mouseenter', function () { hover = true; });
+	win.addEventListener('mouseleave', function () { hover = false; play(); });
+	// 화면에 보일 때만 진행
+	if ('IntersectionObserver' in window) {
+		new IntersectionObserver(function (es) { visible = es[0].isIntersecting; play(); }, { threshold: 0.3 }).observe(root);
+	}
+	root.classList.add('is-on');
+	select(0); play();
+})();
+</script>
+
 <div class="dki-band">
 <div id="sub__wrap">
 	<div class="ws_section12 dki-intro">
@@ -462,10 +578,13 @@ var g5_shop_url = "/shop";
   (function () {
 	function initG2() {
 		if (typeof Swiper === 'undefined') return;
-		new Swiper('.g2-swiper', {
+		var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;   // 움직임을 줄인 설정이면 자동 이동 안 함
+		var sw = new Swiper('.g2-swiper', {
 			slidesPerView: 1,
 			speed: 450,
 			autoHeight: true,
+			// 01 → 06 순서대로 넘어가고, 06 다음에는 01 로 돌아온다 (직접 누르면 그 단계부터 이어서 진행)
+			autoplay: still ? false : { delay: 4500, disableOnInteraction: false },
 			pagination: {
 				el: '.g2-steps',
 				clickable: true,
@@ -475,6 +594,19 @@ var g5_shop_url = "/shop";
 				}
 			}
 		});
+
+		if (still) return;   // 자동 이동을 쓰지 않는 설정
+		var box = document.querySelector('.g2-flow');
+		var hover = false, visible = true;
+		function sync() { (visible && !hover) ? sw.autoplay.start() : sw.autoplay.stop(); }
+		// 읽는 중에 넘어가지 않도록 마우스를 올리면 멈춤
+		box.addEventListener('mouseenter', function () { hover = true; sync(); });
+		box.addEventListener('mouseleave', function () { hover = false; sync(); });
+		// 화면 밖에 있는 동안은 돌지 않고, 보이기 시작하면 시작
+		if ('IntersectionObserver' in window) {
+			visible = false; sw.autoplay.stop();
+			new IntersectionObserver(function (es) { visible = es[0].isIntersecting; sync(); }, { threshold: 0.35 }).observe(box);
+		}
 	}
 	if (document.readyState === 'complete') initG2();
 	else window.addEventListener('load', initG2);
@@ -635,6 +767,8 @@ var g5_shop_url = "/shop";
 		<div class="dki-out-next"></div>
 		<div class="dki-out-pg"></div>
 	</div>
+
+	<a href="#" class="gotopackage">더 다양한 사례 보러가기</a>
 
 	<!-- 카드 클릭 시 큰 화면. 카드의 data-img 가 채워지면 그 이미지를, 비어 있으면 카드와 같은 그림을 확대해 보여줍니다 -->
 	<div class="dki-modal" id="dki-modal" hidden>
