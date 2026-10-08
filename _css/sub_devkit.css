@@ -45,7 +45,21 @@
 }
 
 /* 상단 배너 배경 — 메인 배너와 같은 이미지 */
-.dki-hero {background: linear-gradient(90deg, rgba(10,4,0,.82) 0%, rgba(10,4,0,.5) 42%, rgba(10,4,0,.15) 70%), url('../_img/main/main_visual_devkit.jpg') no-repeat center 2% / cover, #0a0400 !important;}
+.dki-hero {background: linear-gradient(rgba(10,4,0,.62), rgba(10,4,0,.62)), url('../_img/main/main_visual_devkit.jpg') no-repeat center 2% / cover, #0a0400 !important;}
+/* 그림 없이 글만 가운데 — 공용 contents.css 의 '오른쪽 그림 피하기' 규칙(왼쪽 정렬·글자 축소·모바일 위쪽 붙임·본문 숨김)을 이 페이지에서만 되돌린다 */
+.dki-hero .visual_txt .inner_wrap-visual_txt {vertical-align: middle; padding-top: 0; text-align: center;}
+.dki-hero .visual_txt p.mid-txt {font-size: 48px; text-align: center;}
+.dki-hero .visual_txt p.small-txt {display: block; text-align: center;}
+.dki-hero .main_btn {text-align: center;}
+@media all and (max-width: 980px) {
+	.dki-hero {height: 400px;}
+	.dki-hero .visual_txt p.mid-txt {font-size: 38px;}
+}
+@media all and (max-width: 768px) {
+	.dki-hero {height: 340px;}
+	.dki-hero .visual_txt p.mid-txt {font-size: 28px;}
+	.dki-hero .visual_txt p.small-txt {margin-top: 12px; font-size: 14px; line-height: 1.5; word-break: keep-all;}
+}
 
 /* 그림 자리 공통 */
 .dki {position: relative; width: 100%; aspect-ratio: 4 / 3; border-radius: 6px; overflow: hidden;
@@ -55,14 +69,14 @@
 
 /* 미니PC */
 .dki-pc .box {position: relative; width: 44%; aspect-ratio: 1 / 1; border-radius: 14px;
-              background: linear-gradient(145deg, #3d474d, #1e2529); box-shadow: 0 14px 28px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.16);}
+              background: linear-gradient(145deg, #3d474d, #1e2529);}
 .dki-pc .box:before {content: ""; position: absolute; left: 16%; right: 16%; top: 18%; height: 16%;
                      background: repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 3px, transparent 3px 7px);}
 .dki-pc .box:after {content: ""; position: absolute; left: 16%; bottom: 16%; width: 9%; aspect-ratio: 1 / 1; border-radius: 50%;
                     background: #3ecf8e; box-shadow: 0 0 10px #3ecf8e;}
 
 /* 브라우저 창 */
-.dki-win .win {width: 74%; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 14px 28px rgba(0,0,0,.18);}
+.dki-win .win {width: 74%; border-radius: 8px; overflow: hidden; background: #fff;}
 .dki-win .bar {display: flex; align-items: center; gap: 4px; height: 20px; padding: 0 8px; background: #2b3f45;}
 .dki-win .bar i {width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.35);}
 .dki-win .body {padding: 10px;}
@@ -73,11 +87,11 @@
 .dki-win .body span:last-child {margin-bottom: 0; width: 40%; background: #cfd8dd;}
 
 /* 사내 서버 + 잠금 */
-.dki-srv .rack {position: relative; width: 38%; padding: 10px; border-radius: 8px; background: #2b3f45; box-shadow: 0 14px 28px rgba(0,0,0,.25);}
+.dki-srv .rack {position: relative; width: 38%; padding: 10px; border-radius: 8px; background: #2b3f45;}
 .dki-srv .rack i {display: block; height: 12px; margin-bottom: 7px; border-radius: 3px; background: rgba(255,255,255,.14); position: relative;}
 .dki-srv .rack i:last-child {margin-bottom: 0;}
 .dki-srv .rack i:after {content: ""; position: absolute; right: 7px; top: 50%; margin-top: -2px; width: 4px; height: 4px; border-radius: 50%; background: #3ecf8e;}
-.dki-srv .disk {position: absolute; left: 16%; bottom: 23%; width: 21%; height: 18px; border-radius: 4px; background: #46606a; box-shadow: 0 10px 20px rgba(0,0,0,.2);}
+.dki-srv .disk {position: absolute; left: 16%; bottom: 23%; width: 21%; height: 18px; border-radius: 4px; background: #46606a;}
 .dki-srv .disk:before {content: ""; position: absolute; left: 7px; top: 50%; margin-top: -2px; width: 4px; height: 4px; border-radius: 50%; background: #3ecf8e;}
 .dki-srv .disk:after {content: ""; position: absolute; left: 17px; right: 7px; top: 50%; margin-top: -1px; height: 2px; border-radius: 1px; background: rgba(255,255,255,.25);}
 .dki-srv .lock {position: absolute; right: 22%; bottom: 22%; width: 34px; height: 28px; border-radius: 5px; background: #f36d0c;}
@@ -87,7 +101,7 @@
 
 /* 하이브리드(서버 3종) */
 .dki-hyb .row {display: flex; align-items: flex-end; gap: 8px; width: 76%;}
-.dki-hyb .row div {flex: 1; border-radius: 6px 6px 0 0; background: #2b3f45; box-shadow: 0 10px 20px rgba(0,0,0,.2);}
+.dki-hyb .row div {flex: 1; border-radius: 6px 6px 0 0; background: #2b3f45;}
 .dki-hyb .row div:nth-child(1) {height: 46px; background: #3b4a52;}
 .dki-hyb .row div:nth-child(2) {height: 66px;}
 .dki-hyb .row div:nth-child(3) {height: 54px; background: #46606a;}
@@ -132,7 +146,7 @@
                              border-radius: 50%; background: #b9c4c9;}
 
 /* 소프트웨어 — 관리 화면(좌측 메뉴 + 본문) */
-.dki-sw .win {width: 74%; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 14px 28px rgba(0,0,0,.18);}
+.dki-sw .win {width: 74%; border-radius: 8px; overflow: hidden; background: #fff;}
 .dki-sw .bar {display: flex; align-items: center; gap: 4px; height: 20px; padding: 0 8px; background: #2b3f45;}
 .dki-sw .bar i {width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.35);}
 .dki-sw .body {display: flex; min-height: 92px;}
@@ -465,7 +479,6 @@
                border: 1px solid #e3e8ea; border-radius: 10px; background: #fff;}
 /* 링크가 있는 카드만 hover 반응 — 누를 수 있다는 신호 */
 .dki-why > li.wide {transition: box-shadow .25s, border-color .25s, transform .25s;}
-.dki-why > li.wide:hover {border-color: #d8dfe3; box-shadow: 0 8px 20px rgba(17,24,39,.05); transform: translateY(-2px);}
 .dki-why > li.mark {border-color: #ffdcc0; background: linear-gradient(160deg, #fff3e8, #fffaf6 62%, #fff);}
 .dki-why strong {color: #111; font-size: var(--fs-title); font-weight: 700;}
 .dki-why p {margin-top: 30px; color: #333; font-size: var(--fs-body); line-height: 28px;}
@@ -607,7 +620,7 @@
 
 
 /* ===== [시안 2026-10-07] 요구사항 입력 예시 (타이핑) ===== */
-.dki-demo {max-width: 960px; margin: 52px auto 0;}
+.dki-demo {max-width: 960px; margin: 60px auto 0;}
 
 /* 사례 탭 — 박스 없이 이름 + 진행 막대. 막대가 사례 시간 동안 차오른다 */
 .dm-tabs {display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 22px;}
@@ -635,7 +648,7 @@
 .dki-demo.is-on .dm-win {display: block;}
 
 /* 입력 창 */
-.dm-win {overflow: hidden; border: 1px solid #dfe5e8; border-radius: 16px; background: #fff; box-shadow: 0 18px 40px rgba(29,42,46,.08);}
+.dm-win {overflow: hidden; border: 1px solid #dfe5e8; border-radius: 16px; background: #fff; box-shadow: 0 8px 16px rgba(29,42,46,.02);}
 .dm-bar {display: flex; align-items: center; gap: 6px; padding: 13px 18px; border-bottom: 1px solid #eef1f2; background: #fafbfc;}
 .dm-bar i {width: 10px; height: 10px; border-radius: 50%; background: #e3e8ea;}
 .dm-bar strong {margin-left: 10px; color: #8a969b; font-size: var(--fs-cap); font-weight: 500;}
@@ -672,7 +685,7 @@
 	.dki-demo {margin-top: 30px;}
 	.dm-tabs {gap: 8px; margin-bottom: 16px;}
 	.dm-tabs button {padding-bottom: 10px; text-align: center;}
-	.dm-tabs button:before, .dm-tabs i {height: 3px;}
+	.dm-tabs button:before, .dm-tabs i {height: 2px;}
 	.dm-tabs strong {letter-spacing: -0.5px; word-break: keep-all;}
 	.dm-tabs strong:before {display: none;}
 	.dm-win {border-radius: 12px;}
@@ -684,4 +697,68 @@
 	.dm-foot {margin-top: 14px;}
 	.dm-hint {display: none;}
 	.dm-send {width: 100%; text-align: center;}
+}
+
+
+/* ===== [시안 2026-10-08] 템플릿A ===== */
+/* 실제 화면 + 번호 핀 */
+.dki-tpl {max-width: 1100px; margin: 56px auto 0;}
+.tp-shot {overflow: hidden; border: 1px solid #dfe5e8; border-radius: 14px; background: #fff; box-shadow: 0 18px 40px rgba(29,42,46,.08);}
+.tp-bar {display: flex; align-items: center; gap: 6px; padding: 11px 16px; border-bottom: 1px solid #eef1f2; background: #fafbfc;}
+.tp-bar i {width: 10px; height: 10px; border-radius: 50%; background: #e3e8ea;}
+.tp-bar span {margin-left: 10px; color: #6b777b; font-size: var(--fs-badge); font-weight: 600;}
+.tp-img {position: relative; line-height: 0;}
+.tp-img img {display: block; width: 100%; height: auto;}
+.tp-pin {position: absolute; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; margin: -14px 0 0 -14px;
+         border: 2px solid #fff; border-radius: 50%; background: #f36d0c; box-shadow: 0 4px 10px rgba(243,109,12,.4);
+         color: #fff; font-size: 14px; font-weight: 700; line-height: 1;}
+
+.tp-notes {display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin: 40px 0 0; padding: 0; list-style: none; counter-reset: tp;}
+.tp-notes li {position: relative; padding-left: 32px; counter-increment: tp;}
+.tp-notes li:before {content: counter(tp); position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center;
+                     width: 22px; height: 22px; border-radius: 50%; background: #f36d0c; color: #fff; font-size: 12px; font-weight: 700;}
+.tp-notes strong {display: block; color: #1d2a2e; font-size: var(--fs-small); font-weight: 700; line-height: 22px;}
+.tp-notes span {display: block; margin-top: 4px; color: #6b777b; font-size: var(--fs-cap); line-height: 20px; word-break: keep-all;}
+
+.tp-incl {display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; margin-top: 24px; padding: 16px 20px; border-radius: 12px; background: #f4f6f7;}
+.tp-incl em {color: #1d2a2e; font-size: var(--fs-cap); font-style: normal; font-weight: 700;}
+.tp-incl ul {display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none;}
+.tp-incl li {padding: 5px 11px; border: 1px solid #dbe2e5; border-radius: 6px; background: #fff; color: #55636a; font-size: var(--fs-badge);}
+.tp-plus {margin-left: auto; padding: 5px 12px; border: 1px dashed #f39a5b; border-radius: 6px; background: #fff7f1; color: #c2570a; font-size: var(--fs-badge); font-weight: 700;}
+
+/* 장점 4개 */
+.dki-tplben {display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; max-width: 1270px; margin: 60px auto 0; padding: 0; list-style: none;}
+.dki-tplben > li {padding: 30px 24px; border: 1px solid #e3e8ea; border-radius: 14px; background: #fff;}
+.dki-tplben .ico {display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; margin-bottom: 20px; border-radius: 50%; background: #fff1e6;}
+.dki-tplben .ico:before {font-family: "Material Symbols Outlined"; font-size: 28px; font-weight: normal; font-style: normal; line-height: 1; color: #f36d0c;}
+.ico-fast:before {content: "bolt";}
+.ico-save:before {content: "savings";}
+.ico-ui:before {content: "space_dashboard";}
+.ico-quality:before {content: "verified";}
+.dki-tplben strong {display: block; color: #1d2a2e; font-size: var(--fs-title); font-weight: 700; letter-spacing: -0.4px;}
+.dki-tplben p {margin-top: 10px; color: #55636a; font-size: var(--fs-sub); line-height: 26px; word-break: keep-all;}
+
+@media all and (max-width: 1200px) {
+	.dki-tplben {grid-template-columns: repeat(2, minmax(0, 1fr));}
+}
+@media all and (max-width: 980px) {
+	.dki-tpl {margin-top: 30px;}
+	.tp-shot {border-radius: 10px;}
+	.tp-bar {padding: 8px 12px;}
+	.tp-pin {width: 20px; height: 20px; margin: -10px 0 0 -10px; border-width: 1.5px; font-size: 11px;}
+	.tp-notes {grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 10px; margin-top: 18px;}
+	.tp-incl {padding: 14px; gap: 8px;}
+	.tp-incl em {width: 100%;}
+	.tp-plus {margin-left: 0;}
+	.dki-tplben {gap: 12px; margin-top: 28px;}
+	.dki-tplben > li {padding: 22px 18px;}
+	.dki-tplben .ico {width: 44px; height: 44px; margin-bottom: 14px;}
+	.dki-tplben .ico:before {font-size: 24px;}
+	.dki-tplben p {line-height: 22px;}
+}
+@media all and (max-width: 560px) {
+	.dki-tplben {grid-template-columns: 1fr;}
+	.dki-tplben > li {display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; align-items: start;}
+	.dki-tplben .ico {grid-row: 1 / span 2; margin-bottom: 0;}
+	.dki-tplben p {margin-top: 6px;}
 }
