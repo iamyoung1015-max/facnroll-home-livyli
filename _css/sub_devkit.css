@@ -703,10 +703,10 @@
 /* ===== [시안 2026-10-08] 템플릿A ===== */
 /* 실제 화면 + 번호 핀 */
 .dki-tpl {max-width: 1100px; margin: 56px auto 0;}
-.tp-shot {overflow: hidden; border: 1px solid #dfe5e8; border-radius: 14px; background: #fff; box-shadow: 0 18px 40px rgba(29,42,46,.08);}
+.tp-shot {overflow: hidden; border: 1px solid #dfe5e8; border-radius: 14px; background: #fff; box-shadow: 0 4px 8px rgba(29,42,46,.04);}
 .tp-bar {display: flex; align-items: center; gap: 6px; padding: 11px 16px; border-bottom: 1px solid #eef1f2; background: #fafbfc;}
 .tp-bar i {width: 10px; height: 10px; border-radius: 50%; background: #e3e8ea;}
-.tp-bar span {margin-left: 10px; color: #6b777b; font-size: var(--fs-badge); font-weight: 600;}
+.tp-bar span {margin-left: 10px; color: #8a969b; font-size: var(--fs-badge); font-weight: 600;}
 .tp-img {position: relative; line-height: 0;}
 .tp-img img {display: block; width: 100%; height: auto;}
 .tp-pin {position: absolute; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; margin: -14px 0 0 -14px;
@@ -727,16 +727,16 @@
 .tp-plus {margin-left: auto; padding: 5px 12px; border: 1px dashed #f39a5b; border-radius: 6px; background: #fff7f1; color: #c2570a; font-size: var(--fs-badge); font-weight: 700;}
 
 /* 장점 4개 */
-.dki-tplben {display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; max-width: 1270px; margin: 60px auto 0; padding: 0; list-style: none;}
-.dki-tplben > li {padding: 30px 24px; border: 1px solid #e3e8ea; border-radius: 14px; background: #fff;}
-.dki-tplben .ico {display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; margin-bottom: 20px; border-radius: 50%; background: #fff1e6;}
-.dki-tplben .ico:before {font-family: "Material Symbols Outlined"; font-size: 28px; font-weight: normal; font-style: normal; line-height: 1; color: #f36d0c;}
+.dki-tplben {display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; max-width: 1270px; margin: 60px auto 0; padding: 0; list-style: none;}
+.dki-tplben > li {padding: 30px 28px; border: 1px solid #e3e8ea; border-radius: 14px; background: #fff;}
+.dki-tplben .ico {display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; margin-bottom: 20px; border-radius: 50%; background: #2f3c53;}
+.dki-tplben .ico:before {font-family: "Material Symbols Outlined"; font-size: 20px; font-weight: normal; font-style: normal; line-height: 1; color: #fff;}
 .ico-fast:before {content: "bolt";}
 .ico-save:before {content: "savings";}
 .ico-ui:before {content: "space_dashboard";}
 .ico-quality:before {content: "verified";}
-.dki-tplben strong {display: block; color: #1d2a2e; font-size: var(--fs-title); font-weight: 700; letter-spacing: -0.4px;}
-.dki-tplben p {margin-top: 10px; color: #55636a; font-size: var(--fs-sub); line-height: 26px; word-break: keep-all;}
+.dki-tplben strong {display: block; color: #111; font-size: var(--fs-title); font-weight: 700; letter-spacing: -0.4px;}
+.dki-tplben p {margin-top: 30px; color: #333; font-size: var(--fs-sub); line-height: 26px; word-break: keep-all;}
 
 @media all and (max-width: 1200px) {
 	.dki-tplben {grid-template-columns: repeat(2, minmax(0, 1fr));}
@@ -761,4 +761,18 @@
 	.dki-tplben > li {display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; align-items: start;}
 	.dki-tplben .ico {grid-row: 1 / span 2; margin-bottom: 0;}
 	.dki-tplben p {margin-top: 6px;}
+}
+
+
+/* ===== [2026-10-12] 섹션 순서·번호 정리 ===== */
+/* 02 · 개발 시작 — 원래 설명 문단이 없던 섹션에 설명 추가 */
+.dki-intro .dki-lead {max-width: 860px; margin: -30px auto 50px; color: #6b777b; font-size: var(--fs-body); line-height: 28px; text-align: center;}
+/* 키트 구성은 02의 하위 블록 — 위 띠에 이어 붙이고 제목을 한 단계 작게 */
+.dki-band.dki-band-cont {padding-top: 0;}
+.dki-band-cont .dki-kitsec h4.ws_hw {margin-bottom: 40px; font-size: 28px;}
+/* 03 · 템플릿 활용 띠가 연회색이 되어 포함 기능 상자는 흰색으로 */
+.dki-sec-tpl .tp-incl {border: 1px solid #e3e8ea; background: #fff;}
+@media all and (max-width: 980px) {
+	.dki-intro .dki-lead {margin: -10px auto 28px;}
+	.dki-band-cont .dki-kitsec h4.ws_hw {margin-bottom: 24px; font-size: 21px;}
 }
